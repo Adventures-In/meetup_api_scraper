@@ -1,0 +1,688 @@
+<h3>API methods</h3>
+<p><input type="text" class="nice-input" style="width: 100%" id="api-search"></p>
+
+<div class="resource-group rounded-all resource-group-abuse">
+<h4><span class="muted">v3</span> abuse</h4>
+<ul class="clearfix">
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/abuse_reports/" title="Report Group">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/abuse_reports</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/events/:event_id/abuse_reports/" title="Report Event">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/events/:event_id/abuse_reports</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/self/abuse_reports/" title="Report Abuse">
+<span class="http-method">POST</span>
+<span class="api-path">/self/abuse_reports</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/self/blocks/:member_id/#status" title="Block status">
+<span class="http-method">GET</span>
+<span class="api-path">/self/blocks/:member_id</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/self/blocks/:member_id/#block" title="Block member">
+<span class="http-method">POST</span>
+<span class="api-path">/self/blocks/:member_id</span>
+</a>
+</li>
+
+<li class="DELETE">
+<a href="/meetup_api/docs/self/blocks/:member_id/#unblock" title="Unblock member">
+<span class="http-method">DELETE</span>
+<span class="api-path">/self/blocks/:member_id</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-batch">
+<h4><span class="muted">v3</span> batch</h4>
+<ul class="clearfix">
+
+<li class="POST">
+<a href="/meetup_api/docs/batch/" title="batch">
+<span class="http-method">POST</span>
+<span class="api-path">/batch</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-boards">
+<h4><span class="muted">v3</span> boards</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/boards/" title="Discussion Boards">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/boards</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/boards/:bid/discussions/" title="Discussions">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/boards/:bid/discussions</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/boards/:bid/discussions/:did/" title="Discussion Posts">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/boards/:bid/discussions/:did</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-comments">
+<h4><span class="muted">v3</span> comments</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/events/:event_id/comments/#list" title="Event Comments List">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/events/:event_id/comments</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/events/:event_id/comments/#create" title="Event comment and reply">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/events/:event_id/comments</span>
+</a>
+</li>
+
+<li class="DELETE">
+<a href="/meetup_api/docs/:urlname/events/:event_id/comments/:comment_id/#delete" title="Event comment delete">
+<span class="http-method">DELETE</span>
+<span class="api-path">/:urlname/events/:event_id/comments/:comment_id</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/events/:event_id/comments/:comment_id/likes/#list" title="Event Comment and Reply Likes">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/events/:event_id/comments/:comment_id/likes</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/events/:event_id/comments/:comment_id/likes/#create" title="Event Comment Like">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/events/:event_id/comments/:comment_id/likes</span>
+</a>
+</li>
+
+<li class="DELETE">
+<a href="/meetup_api/docs/:urlname/events/:event_id/comments/:comment_id/likes/#delete" title="Event Comment Unlike">
+<span class="http-method">DELETE</span>
+<span class="api-path">/:urlname/events/:event_id/comments/:comment_id/likes</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-events">
+<h4><span class="muted">v3</span> events</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/events/#list" title="Group Events">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/events</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/events/#create" title="Create Event">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/events</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/events/:event_id/rsvps/close/" title="Close Rsvps">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/events/:event_id/rsvps/close</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/events/:event_id/rsvps/open/" title="Open Rsvps">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/events/:event_id/rsvps/open</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/events/:id/#get" title="Get Event">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/events/:id</span>
+</a>
+</li>
+
+<li class="PATCH">
+<a href="/meetup_api/docs/:urlname/events/:id/#edit" title="Update Event">
+<span class="http-method">PATCH</span>
+<span class="api-path">/:urlname/events/:id</span>
+</a>
+</li>
+
+<li class="DELETE">
+<a href="/meetup_api/docs/:urlname/events/:id/#delete" title="Event Delete">
+<span class="http-method">DELETE</span>
+<span class="api-path">/:urlname/events/:id</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/events/:id/attendance/#list" title="Attendance">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/events/:id/attendance</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/events/:id/attendance/#edit" title="Attendance Taking">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/events/:id/attendance</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/events/:id/payments/" title="Event Payments">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/events/:id/payments</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/find/upcoming_events/" title="Find Upcoming Events">
+<span class="http-method">GET</span>
+<span class="api-path">/find/upcoming_events</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/self/calendar/#list" title="Member Calendar">
+<span class="http-method">GET</span>
+<span class="api-path">/self/calendar</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/self/events/" title="Member Events">
+<span class="http-method">GET</span>
+<span class="api-path">/self/events</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-geo">
+<h4><span class="muted">v3</span> geo</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/find/locations/" title="Find locations">
+<span class="http-method">GET</span>
+<span class="api-path">/find/locations</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-groups">
+<h4><span class="muted">v3</span> groups</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/#get" title="Get Group">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/#edit" title="Group Edit">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/similar_groups/" title="Similar groups">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/similar_groups</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/topics/#add" title="Group Topics Add">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/topics</span>
+</a>
+</li>
+
+<li class="DELETE">
+<a href="/meetup_api/docs/:urlname/topics/#remove" title="Group Topics Remove">
+<span class="http-method">DELETE</span>
+<span class="api-path">/:urlname/topics</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/find/groups/" title="Find Groups">
+<span class="http-method">GET</span>
+<span class="api-path">/find/groups</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/recommended/groups/" title="Recommended Groups">
+<span class="http-method">GET</span>
+<span class="api-path">/recommended/groups</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/recommended/groups/ignores/:urlname/" title="Recommended Groups Ignore">
+<span class="http-method">POST</span>
+<span class="api-path">/recommended/groups/ignores/:urlname</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/self/groups/" title="Member groups">
+<span class="http-method">GET</span>
+<span class="api-path">/self/groups</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-hosts">
+<h4><span class="muted">v3</span> hosts</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/events/:event_id/hosts/" title="Event Hosts">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/events/:event_id/hosts</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-meta">
+<h4><span class="muted">v3</span> meta</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/status/" title="API Status">
+<span class="http-method">GET</span>
+<span class="api-path">/status</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-notifications">
+<h4><span class="muted">v3</span> notifications</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/notifications/" title="Notifications">
+<span class="http-method">GET</span>
+<span class="api-path">/notifications</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/notifications/clicked/" title="Clicked Notifications">
+<span class="http-method">POST</span>
+<span class="api-path">/notifications/clicked</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/notifications/read/" title="Read Notifications">
+<span class="http-method">POST</span>
+<span class="api-path">/notifications/read</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-photos">
+<h4><span class="muted">v3</span> photos</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/events/:event_id/photos/#list" title="Event Photos">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/events/:event_id/photos</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/events/:event_id/photos/#upload" title="Event Photo Upload">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/events/:event_id/photos</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/events/:event_id/photos/:photo_id/#get" title="Event Photo">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/events/:event_id/photos/:photo_id</span>
+</a>
+</li>
+
+<li class="PATCH">
+<a href="/meetup_api/docs/:urlname/events/:event_id/photos/:photo_id/#edit" title="Event Photo Edit">
+<span class="http-method">PATCH</span>
+<span class="api-path">/:urlname/events/:event_id/photos/:photo_id</span>
+</a>
+</li>
+
+<li class="DELETE">
+<a href="/meetup_api/docs/:urlname/events/:event_id/photos/:photo_id/#delete" title="Event Photo Delete">
+<span class="http-method">DELETE</span>
+<span class="api-path">/:urlname/events/:event_id/photos/:photo_id</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/events/:event_id/photos/:photo_id/comments/#get" title="Photo Comments">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/events/:event_id/photos/:photo_id/comments</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/events/:event_id/photos/:photo_id/comments/#post" title="Photo Comment">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/events/:event_id/photos/:photo_id/comments</span>
+</a>
+</li>
+
+<li class="DELETE">
+<a href="/meetup_api/docs/:urlname/events/:event_id/photos/:photo_id/comments/:comment_id/#delete" title="Photo Comment Delete">
+<span class="http-method">DELETE</span>
+<span class="api-path">/:urlname/events/:event_id/photos/:photo_id/comments/:comment_id</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/photo_albums/" title="Photo Album List">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/photo_albums</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/photo_albums/:album_id/" title="Photo Album">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/photo_albums/:album_id</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/photo_albums/:album_id/photos/#list" title="Album Photos">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/photo_albums/:album_id/photos</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/photo_albums/:album_id/photos/#upload" title="Album Photo Upload">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/photo_albums/:album_id/photos</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/photos/#list" title="Album Photos">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/photos</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/members/:member_id/photos/#post" title="Member Photo Upload">
+<span class="http-method">POST</span>
+<span class="api-path">/members/:member_id/photos</span>
+</a>
+</li>
+
+<li class="DELETE">
+<a href="/meetup_api/docs/members/:member_id/photos/:photo_id/#delete" title="Member Photo Delete">
+<span class="http-method">DELETE</span>
+<span class="api-path">/members/:member_id/photos/:photo_id</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-preferences">
+<h4><span class="muted">v3</span> preferences</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/preferences/:domain/" title="Get preference and permission data">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/preferences/:domain</span>
+</a>
+</li>
+
+<li class="PATCH">
+<a href="/meetup_api/docs/:urlname/preferences/:domain/" title="Update a preference">
+<span class="http-method">PATCH</span>
+<span class="api-path">/:urlname/preferences/:domain</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-pro">
+<h4><span class="muted">v3</span> pro</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/pro/:urlname/events/" title="Ordered set of upcoming events from groups affiliated to the Pro Organization">
+<span class="http-method">GET</span>
+<span class="api-path">/pro/:urlname/events</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/pro/:urlname/groups/" title="Search Pro Groups">
+<span class="http-method">GET</span>
+<span class="api-path">/pro/:urlname/groups</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/pro/:urlname/members/" title="Search Pro Members">
+<span class="http-method">GET</span>
+<span class="api-path">/pro/:urlname/members</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/pro/:urlname/rsvps/" title="Get Pro Network RSVPs">
+<span class="http-method">GET</span>
+<span class="api-path">/pro/:urlname/rsvps</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/pro/:urlname/rsvps/survey/" title="Get Pro RSVP registration responses">
+<span class="http-method">GET</span>
+<span class="api-path">/pro/:urlname/rsvps/survey</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/pro/:urlname/tickets/" title="Search Issued Pro Tickets">
+<span class="http-method">GET</span>
+<span class="api-path">/pro/:urlname/tickets</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-profiles">
+<h4><span class="muted">v3</span> profiles</h4>
+<ul class="clearfix">
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/member/approvals/#create" title="Membership Approval">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/member/approvals</span>
+</a>
+</li>
+
+<li class="DELETE">
+<a href="/meetup_api/docs/:urlname/member/approvals/#delete" title="Membership Decline">
+<span class="http-method">DELETE</span>
+<span class="api-path">/:urlname/member/approvals</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/members/#list" title="Group Profile list">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/members</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/members/#create" title="Group Join">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/members</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/members/:member_id/#get" title="Get Group Member Profile">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/members/:member_id</span>
+</a>
+</li>
+
+<li class="PATCH">
+<a href="/meetup_api/docs/:urlname/members/:member_id/#edit" title="Edit Group Member Profile">
+<span class="http-method">PATCH</span>
+<span class="api-path">/:urlname/members/:member_id</span>
+</a>
+</li>
+
+<li class="DELETE">
+<a href="/meetup_api/docs/:urlname/members/:member_id/#delete" title="Delete Group Member Profile (Leave Group)">
+<span class="http-method">DELETE</span>
+<span class="api-path">/:urlname/members/:member_id</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/find/:urlname/members/" title="Group Profile search">
+<span class="http-method">GET</span>
+<span class="api-path">/find/:urlname/members</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/members/:member_id/#get" title="Get Member Profile">
+<span class="http-method">GET</span>
+<span class="api-path">/members/:member_id</span>
+</a>
+</li>
+
+<li class="PATCH">
+<a href="/meetup_api/docs/members/:member_id/#edit" title="Member Profile Edit">
+<span class="http-method">PATCH</span>
+<span class="api-path">/members/:member_id</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-rsvps">
+<h4><span class="muted">v3</span> rsvps</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/:urlname/events/:event_id/rsvps/#list" title="Event RSVP list">
+<span class="http-method">GET</span>
+<span class="api-path">/:urlname/events/:event_id/rsvps</span>
+</a>
+</li>
+
+<li class="POST">
+<a href="/meetup_api/docs/:urlname/events/:event_id/rsvps/" title="RSVP Create and Update">
+<span class="http-method">POST</span>
+<span class="api-path">/:urlname/events/:event_id/rsvps</span>
+</a>
+</li>
+
+</ul>
+</div>
+
+<div class="resource-group rounded-all resource-group-topics">
+<h4><span class="muted">v3</span> topics</h4>
+<ul class="clearfix">
+
+<li class="GET">
+<a href="/meetup_api/docs/find/topic_categories/" title="Topic Categories">
+<span class="http-method">GET</span>
+<span class="api-path">/find/topic_categories</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/find/topics/" title="Find Topics">
+<span class="http-method">GET</span>
+<span class="api-path">/find/topics</span>
+</a>
+</li>
+
+<li class="GET">
+<a href="/meetup_api/docs/recommended/group_topics/" title="Recommend Group Topics">
+<span class="http-method">GET</span>
+<span class="api-path">/recommended/group_topics</span>
+</a>
+</li>
+
+</ul>
+</div>
