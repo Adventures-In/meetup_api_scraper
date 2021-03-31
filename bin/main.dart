@@ -1,29 +1,27 @@
 import 'dart:io';
 
-import 'package:meetup_api_scraper/meetup_api_scraper.dart'
-    as meetup_api_scraper;
-
 import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:html/parser.dart';
 import 'package:html/dom.dart';
 
+const httpsScheme = 'https';
+const meetupHost = 'www.meetup.com';
+const docsPath = '/meetup_api/docs/';
+
 Future<Element?> retrieveApiIndexTags() async {
   final client = Client();
-  // final response = await client.get(
-  //     Uri(scheme: 'https', host: 'www.meetup.com', path: '/meetup_api/docs/'));
 
-  final response = await client.get(Uri(
-      scheme: 'https',
-      host: 'www.meetup.com',
-      path: '/meetup_api/docs/:urlname/abuse_reports/'));
+  final response = await client
+      .get(Uri(scheme: httpsScheme, host: meetupHost, path: docsPath));
 
-  // Use html parser and query selector
   final document = parse(response.body);
-  // return document.getElementById('api-index');
+  return document.getElementById('api-index');
 
-  return document.getElementById('method-info');
+  // final response = await client
+  //     .get(Uri(scheme: httpsScheme, host: meetupHost, path: docsPath+endpoint));
+  // return document.getElementById('method-info');
 }
 
 void main(List<String> arguments) async {
@@ -35,33 +33,18 @@ void main(List<String> arguments) async {
 }
 
 Future<File> writeFile() {
-  var contents = '''
-{
-  "openapi" : "3.0.1",
-  
-  "externalDocs" : {
-    "description": "Meetup API Documentation",
-    "url": "https://www.meetup.com/meetup_api/"
-  },
-  
-  
-  "info" : {
-    "title" : "Meetup API",
-    "version" : "3"
-  },
+  final openapiJsonMap = <String, dynamic>{
+    'openapi': '3.0.1',
+    'externalDocs': {
+      'description': 'Meetup API Documentation',
+      'url': 'https://www.meetup.com/meetup_api/'
+    },
+    'info': {'title': 'Meetup API', 'version': '3'},
+    'servers': [
+      {'url': 'https://api.meetup.com/'}
+    ],
+  };
 
-
-  "servers" : [ {
-    "url" : "https://api.meetup.com/"
-  } ],
-
-  "paths" : {
-''';
-
-  contents += '''
-  }
-}
-''';
-
-  return File('output/openapi.json').writeAsString(contents);
+  return File('output/openapi.json')
+      .writeAsString(JsonEncoder.withIndent('  ').convert(openapiJsonMap));
 }
