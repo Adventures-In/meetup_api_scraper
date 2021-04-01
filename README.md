@@ -1,5 +1,3 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+# Meetup API Scraper
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+[Notes](https://docs.google.com/document/d/18bTLGrjRCYv31-l661_t2NsbJ8M7TTtWqr5x4hWSkOg/edit)
