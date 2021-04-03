@@ -1,16 +1,22 @@
 {
-  "openapi": "3.0.1",
-  "externalDocs": {
+  "openapi" : "3.0.1",
+  
+  "externalDocs" : {
     "description": "Meetup API Documentation",
     "url": "https://www.meetup.com/meetup_api/"
   },
-  "info": {
-    "title": "Meetup API",
-    "version": "3"
+  
+  
+  "info" : {
+    "title" : "Meetup API",
+    "version" : "3"
   },
-  "servers": [
-    {
-      "url": "https://api.meetup.com/"
-    }
-  ]
+
+
+  "servers" : [ {
+    "url" : "https://api.meetup.com/"
+  } ],
+
+  "paths" : {
+  }
 }

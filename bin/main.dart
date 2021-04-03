@@ -2,32 +2,12 @@ import 'dart:io';
 
 import 'dart:convert';
 
-import 'package:http/http.dart';
-import 'package:html/parser.dart';
-import 'package:html/dom.dart';
-
-const httpsScheme = 'https';
-const meetupHost = 'www.meetup.com';
-const docsPath = '/meetup_api/docs/';
-
-Future<Element?> retrieveApiIndexTags() async {
-  final client = Client();
-
-  final response = await client
-      .get(Uri(scheme: httpsScheme, host: meetupHost, path: docsPath));
-
-  final document = parse(response.body);
-  return document.getElementById('api-index');
-
-  // final response = await client
-  //     .get(Uri(scheme: httpsScheme, host: meetupHost, path: docsPath+endpoint));
-  // return document.getElementById('method-info');
-}
+import 'package:meetup_api_scraper/api_tags.dart';
 
 void main(List<String> arguments) async {
-  // final tags = await retrieveApiIndexTags();
+  final tags = await ApiTags.retrieveApiIndexTags();
 
-  // print(tags?.innerHtml);
+  print(tags?.innerHtml);
 
   await writeFile();
 }
