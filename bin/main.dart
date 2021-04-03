@@ -1,13 +1,12 @@
 import 'dart:io';
-
 import 'dart:convert';
 
 import 'package:meetup_api_scraper/api_tags.dart';
 
 void main(List<String> arguments) async {
-  final tags = await ApiTags.retrieveApiIndexTags();
+  final tags = await ApiTags().retrieveApiIndexTags();
 
-  print(tags?.innerHtml);
+  print(tags.innerHtml);
 
   await writeFile();
 }
