@@ -1,0 +1,71 @@
+
+        
+
+<div id="">
+  <h2>Report Event</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /:urlname/events/:event_id/abuse_reports
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">reporting</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Submits a new abuse report for a target event. Abuse reports will be followed up on by our Community Support team.</p>
+  </div>
+  
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>This method requires the oauth <code>reporting</code> scope for oauth-authenticated requests</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="comments"><span class="">comments</span></dt>
+    <dd class="rounded-all"><p>An optional string of text that describes why you are submitting this report</p></dd>
+  
+    <dt class="align-right bold" title="type"><span class="param_required">type</span></dt>
+    <dd class="rounded-all"><p>A required identifier for type of abuse you are reporting. Acceptable values include violent_or_hateful:violent, violent_or_hateful:hateful, violent_or_hateful:misinformation, violent_or_hateful:other, inappropriate:sexually_explicit, inappropriate:misinformation, inappropriate:sexual_exploitation, inappropriate:licensed_services, inappropriate:underage, inappropriate:illegal, inappropriate:intellectual_property, inappropriate:other, poor_quality_or_spam:spam, poor_quality_or_spam:misleading_title, poor_quality_or_spam:misinformation, poor_quality_or_spam:not_irl, poor_quality_or_spam:no_description, poor_quality_or_spam:other, irl:hateful, irl:violent, irl:misrepresentation, irl:no_host, irl:other</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>A successful abuse report request will result in a 202 Accepted response</p>
+  <dl>
+  
+  </dl>
+  
+  
+  <h3 id="examples" class="rounded-all">Examples</h3>
+  <p>Submit an abuse report for an event {event_id} belonging to group {urlname} that doesn't appear to be fostering a healthy community</p>
+<pre><code>curl -H "Authorization: Bearer {token}" \
+  "https://api.meetup.com/{urlname}/events/{event_id}/abuse_reports" \
+  -d "type=not_community"
+</code></pre>
+  
+</div>
+
+
+      

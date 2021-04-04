@@ -1,0 +1,88 @@
+
+        
+
+<div id="">
+  <h2>Event Payments</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /:urlname/events/:id/payments
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Allows organizers of a group to note payments made by members for an event. This is the 'Mark Paid' feature seen in the RSVP listings on event details pages and affects the 'pay_status' response fields in the <a href="/meetup_api/docs/:urlname/events/:event_id/rsvps/#listresponse">/:urlname/events/:event_id/rsvps</a> for paid events</p>
+  </div>
+  
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>Only organizer may submit payment information for members and only one payment may be submitted for a member for a given event</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="amount"><span class="param_required">amount</span></dt>
+    <dd class="rounded-all"><p>The monetary amount of money the member submitted</p></dd>
+  
+    <dt class="align-right bold" title="member"><span class="param_required">member</span></dt>
+    <dd class="rounded-all"><p>Member Id of member who made a payment</p></dd>
+  
+    <dt class="align-right bold" title="paid_on"><span class="">paid_on</span></dt>
+    <dd class="rounded-all"><p>The time the payment was made in milliseconds from the epoc. Defaults to now</p></dd>
+  
+    <dt class="align-right bold" title="quantity"><span class="">quantity</span></dt>
+    <dd class="rounded-all"><p>The number of payments made. Defaults to 1</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="confirm_code"><span class="">confirm_code</span></dt>
+    <dd class="rounded-all">
+    <p>Confirmation code for the payment</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Unique identifier for the payment</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+  <h3 id="examples" class="rounded-all">Examples</h3>
+  <p>Collect a payment in my-group for event 123 by member 456</p>
+<pre><code>curl 'https://api.meetup.com/my-group/events/123/payments' \
+     -d 'key=ORG_API_KEY&amp;member=456&amp;amount=10.00'
+</code></pre>
+  
+</div>
+
+
+      

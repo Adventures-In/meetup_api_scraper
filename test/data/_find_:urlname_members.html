@@ -1,0 +1,481 @@
+
+        
+
+<div id="">
+  <h2>Group Profile search</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /find/:urlname/members
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Find group member profiles by name.
+Member's who very recently joined or left the group may not be immediately searchable</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/find/:urlname/members">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>A valid <strong>:urlname</strong> path parameter is required</p>
+<p>This endpoint uses HTTP <a href="/meetup_api/docs/#v3_json">Link header based pagination</a>.</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="fields"><span class="">fields</span></dt>
+    <dd class="rounded-all"><p>A comma-delimited list of optional fields to append to the response</p></dd>
+  
+    <dt class="align-right bold" title="order"><span class="">order</span></dt>
+    <dd class="rounded-all"><p>Orders results according to definitions listed below. May be one of "name" or "closest_match"</p></dd>
+  
+    <dt class="align-right bold" title="page"><span class="">page</span></dt>
+    <dd class="rounded-all"><p>Number of requested members to return. Defaults to 50</p></dd>
+  
+    <dt class="align-right bold" title="query"><span class="param_required">query</span></dt>
+    <dd class="rounded-all"><p>The name to search for</p></dd>
+  
+  </dl>
+  
+  <h4 id="ordering">Ordering</h4>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold"><span class="">closest_match</span></dt>
+    <dd class="rounded-all"><p>Ordered by closest match to the provided query</p></dd>
+  
+    <dt class="align-right bold"><span class="">name</span></dt>
+    <dd class="rounded-all"><p>Orded by the name of the member</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>Returns a list of profile objects encoded as JSON</p>
+  <dl>
+   
+    <dt class="align-right bold" title="bio"><span class="">bio</span></dt>
+    <dd class="rounded-all">
+    <p>Member bio. When profile does not belong to the authenticated member, this may be omitted if member opted to hide their bio from others</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="birthday"><span class="">birthday</span></dt>
+    <dd class="rounded-all">
+    <p>Returned only when the fields request parameter value includes 'birthday'
+and only for the authenticated member when defined</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="day"><span class="">day</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric day member was born. May be absent if not defined</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="month"><span class="">month</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric month member was born. May be absent if not defined</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="year"><span class="">year</span></dt>
+       <dd class="rounded-all">
+        <p>Year member was born</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="city"><span class="">city</span></dt>
+    <dd class="rounded-all">
+    <p>City associated with Member's location</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="country"><span class="">country</span></dt>
+    <dd class="rounded-all">
+    <p>Country code associated with Member's location</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="email"><span class="">email</span></dt>
+    <dd class="rounded-all">
+    <p>Member email address. Provided only if a profile belongs to the authenticated member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="gender"><span class="">gender</span></dt>
+    <dd class="rounded-all">
+    <p>Returned only when the fields request parameter value includes "gender"
+and only for the authenticated member.
+Value may be one of "female", "male", "none", or "other".
+This field may be absent where gender is not defined</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="group_profile"><span class="">group_profile</span></dt>
+    <dd class="rounded-all">
+    <p>Meetup Group profile information.
+This field is only returned when profile is requested in group contexts</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="answers"><span class="">answers</span></dt>
+       <dd class="rounded-all">
+        <p>Array of answers to Group Profile questions</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="answer"><span class="">answer</span></dt>
+            <dd class="rounded-all"><p>Answer text</p></dd>
+            
+            <dt class="align-right bold" title="question"><span class="">question</span></dt>
+            <dd class="rounded-all"><p>Question text</p></dd>
+            
+            <dt class="align-right bold" title="question_id"><span class="">question_id</span></dt>
+            <dd class="rounded-all"><p>Unique numeric question identifier</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="created"><span class="">created</span></dt>
+       <dd class="rounded-all">
+        <p>The time this member joined the Group, represented as milliseconds since the epoch</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="group"><span class="">group</span></dt>
+       <dd class="rounded-all">
+        <p>The group associated with this membership</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="group_photo"><span class="">group_photo</span></dt>
+            <dd class="rounded-all"><p>Group photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric group ID</p></dd>
+            
+            <dt class="align-right bold" title="join_mode"><span class="">join_mode</span></dt>
+            <dd class="rounded-all"><p>Who can join this group and how. One of "approval", "closed", or "open"</p></dd>
+            
+            <dt class="align-right bold" title="key_photo"><span class="">key_photo</span></dt>
+            <dd class="rounded-all"><p>Group primary photo</p></dd>
+            
+            <dt class="align-right bold" title="localized_location"><span class="">localized_location</span></dt>
+            <dd class="rounded-all"><p>City/State or City/Country of the group</p></dd>
+            
+            <dt class="align-right bold" title="name"><span class="">name</span></dt>
+            <dd class="rounded-all"><p>Name of the group</p></dd>
+            
+            <dt class="align-right bold" title="photo_gradient"><span class="">photo_gradient</span></dt>
+            <dd class="rounded-all"><p>Color combination used generate group duotone</p></dd>
+            
+            <dt class="align-right bold" title="status"><span class="">status</span></dt>
+            <dd class="rounded-all"><p>Status of the group</p></dd>
+            
+            <dt class="align-right bold" title="urlname"><span class="">urlname</span></dt>
+            <dd class="rounded-all"><p>Urlname used to identify the group on meetup.com</p></dd>
+            
+            <dt class="align-right bold" title="who"><span class="">who</span></dt>
+            <dd class="rounded-all"><p>What the group calls its members</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="intro"><span class="">intro</span></dt>
+       <dd class="rounded-all">
+        <p>Member intro, may be omitted if member opted to hide their intro from other members</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="link"><span class="">link</span></dt>
+       <dd class="rounded-all">
+        <p>Member profile link, provides a link to the members chapter profile</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="role"><span class="">role</span></dt>
+       <dd class="rounded-all">
+        <p>The leadership role of this member within the Group, if any.
+Value may be one of assistant_organizer, coorganizer, event_organizer, organizer</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="status"><span class="">status</span></dt>
+       <dd class="rounded-all">
+        <p>Membership status in this Group.
+Value may be one of
+active, blocked, pending, pending_payment or none</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="title"><span class="">title</span></dt>
+       <dd class="rounded-all">
+        <p>Organizer defined title of member. May be absent if not defined</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+       <dd class="rounded-all">
+        <p>The last time this member edited their Group profile, represented as milliseconds since the epoch</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="visited"><span class="">visited</span></dt>
+       <dd class="rounded-all">
+        <p>The last time this member visited the Group, represented as milliseconds since the epoch</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Unique numeric identifier for the member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="is_pro_admin"><span class="">is_pro_admin</span></dt>
+    <dd class="rounded-all">
+    <p>Returns true if the member is an active admin of an active meetup pro network</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="joined"><span class="">joined</span></dt>
+    <dd class="rounded-all">
+    <p>Time member joined, represented as milliseconds since the epoch</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+    <dd class="rounded-all">
+    <p>Geographic latitude associated with Member's location</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="localized_country_name"><span class="">localized_country_name</span></dt>
+    <dd class="rounded-all">
+    <p>Name of country associated with Member's location</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+    <dd class="rounded-all">
+    <p>Geographic longitude associated with Member's location</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="messaging_pref"><span class="">messaging_pref</span></dt>
+    <dd class="rounded-all">
+    <p>The member's preference for being contacted from other members on the platform.
+Returned only when the fields request parameter value includes "messaging_pref".
+May be one of the following: "all_members", "groups_only", or "orgs_only"</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="name"><span class="">name</span></dt>
+    <dd class="rounded-all">
+    <p>Display name for the member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="other_services"><span class="">other_services</span></dt>
+    <dd class="rounded-all">
+    <p>An object whose key's are the names of associated external
+networks and values are identities within those networks.
+The keys may be one of facebook, flickr, linkedin, tumblr or twitter.
+Returned only when "fields" request parameter value
+includes "other_services"</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="identifier"><span class="">identifier</span></dt>
+       <dd class="rounded-all">
+        <p>A unique string identifier</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="url"><span class="">url</span></dt>
+       <dd class="rounded-all">
+        <p>A url for this identity. May be the same as identifier in some cases</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+    <dd class="rounded-all">
+    <p>Member photo. May be absent if member has not chosen one.
+In group contexts, the Member's Group profile photo will be returned.</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+       <dd class="rounded-all">
+        <p>A base url that can be use to construct a photo url from its components</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+       <dd class="rounded-all">
+        <p>Link for full sized photo</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric photo ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+       <dd class="rounded-all">
+        <p>Link for standard sized photo</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+       <dd class="rounded-all">
+        <p>Link for thumbnail sized photo</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="type"><span class="">type</span></dt>
+       <dd class="rounded-all">
+        <p>Type of photo. One of "event" or "member"</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="privacy"><span class="">privacy</span></dt>
+    <dd class="rounded-all">
+    <p>Member's privacy preferences
+Returned only when the "fields" request parameter value includes "privacy"</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="bio"><span class="">bio</span></dt>
+       <dd class="rounded-all">
+        <p>may be 'hidden' or 'visible'</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="facebook"><span class="">facebook</span></dt>
+       <dd class="rounded-all">
+        <p>may be 'hidden' of 'visible'.
+If absent, the member has not connected their Facebook account to Meetup</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="groups"><span class="">groups</span></dt>
+       <dd class="rounded-all">
+        <p>may be 'hidden' or 'visible</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="topics"><span class="">topics</span></dt>
+       <dd class="rounded-all">
+        <p>may be 'hidden' or 'visible'</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="self"><span class="">self</span></dt>
+    <dd class="rounded-all">
+    <p>Represents the authenticated member's relation to member.
+Returned when "fields" request parameter value includes "self" and
+the target member is not the authenticated member</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="actions"><span class="">actions</span></dt>
+       <dd class="rounded-all">
+        <p>List of actions available for the authenticated member to perform.
+Currently only "message" is supported</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="blocks"><span class="">blocks</span></dt>
+       <dd class="rounded-all">
+        <p>Boolean indication of whether or not the authenticated member blocks this member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="common"><span class="">common</span></dt>
+       <dd class="rounded-all">
+        <p>Information the authenticated member has in common with this member</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="groups"><span class="">groups</span></dt>
+            <dd class="rounded-all"><p>List of common groups</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="friends"><span class="">friends</span></dt>
+       <dd class="rounded-all">
+        <p>Boolean indication of whether or not the authenticated member is a friend of the member</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="state"><span class="">state</span></dt>
+    <dd class="rounded-all">
+    <p>State associated with Member's location, where available</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="status"><span class="">status</span></dt>
+    <dd class="rounded-all">
+    <p>a string with one of the following values: {'active', 'prereg', 'unknown'}</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

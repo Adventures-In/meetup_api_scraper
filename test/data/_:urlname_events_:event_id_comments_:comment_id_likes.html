@@ -1,0 +1,274 @@
+
+        
+
+<div id="list">
+  <h2>Event Comment and Reply Likes</h2>
+  <div id="listuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /:urlname/events/:event_id/comments/:comment_id/likes
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Returns lists of likes for an event comment or reply</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/:urlname/events/:event_id/comments/:comment_id/likes">Try it in the console</a></p>
+  <h3 id="listparams" class="rounded-all">Request Parameters</h3>
+  <div class="listparam-notes"><p>A path parameter for <strong>:urlname</strong>,  <strong>:event_id</strong>,
+and <strong>:comment_id</strong> is required</p>
+<p>The <strong>:comment_id</strong> should be formatted as <code>comment:{comment_id}</code> for top level comments
+or <code>reply:{reply_id}</code> for comment replies.</p>
+<p>To obtain a list of comments and their replies for an event, see the
+<a href="/meetup_api/docs/:urlname/events/:event_id/comments/">event comments</a> endpoint</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="listresponse" class="rounded-all">Response</h3>
+  <p>Returns a list of likes</p>
+  <dl>
+   
+    <dt class="align-right bold" title="created"><span class="">created</span></dt>
+    <dd class="rounded-all">
+    <p>Time of like, in milliseconds since the epoch</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member"><span class="">member</span></dt>
+    <dd class="rounded-all">
+    <p>Member associated with the like</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="bio"><span class="">bio</span></dt>
+       <dd class="rounded-all">
+        <p>Intro of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="event_context"><span class="">event_context</span></dt>
+       <dd class="rounded-all">
+        <p>Member's context within the event. Only returned in the context of an event</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="host"><span class="">host</span></dt>
+            <dd class="rounded-all"><p>Boolean indicator for whether this member is a host for the event</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric member ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+       <dd class="rounded-all">
+        <p>Member photo, if available.
+Members who registered via Facebook may not have highres photos</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="role"><span class="">role</span></dt>
+       <dd class="rounded-all">
+        <p>The leadership role of this member within the group, if any.
+Value may be one of assistant_organizer, coorganizer, event_organizer, organizer</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="title"><span class="">title</span></dt>
+       <dd class="rounded-all">
+        <p>Organizer defined title of member. May be absent if not defined</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+    <dd class="rounded-all">
+    <p>Time like was updated, in milliseconds since the epoch</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+<div id="create">
+  <h2>Event Comment Like</h2>
+  <div id="createuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /:urlname/events/:event_id/comments/:comment_id/likes
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Like a given event comment</p>
+  </div>
+  
+  <h3 id="createparams" class="rounded-all">Request Parameters</h3>
+  <div class="createparam-notes"><p>A path parameter for <strong>:urlname</strong>,  <strong>:event_id</strong>,
+and <strong>:comment_id</strong> is required</p>
+<p>The <strong>:comment_id</strong> should be formatted as <code>comment:{comment_id}</code> for top level comments
+or <code>reply:{reply_id}</code> for comment replies.</p>
+<p>To obtain a list of comments and their replies for an event, see the
+<a href="/meetup_api/docs/:urlname/events/:event_id/comments/">event comments</a> endpoint</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="createresponse" class="rounded-all">Response</h3>
+  <p>Returns an HTTP 204 response if like was successful, 401 if unauthorized.</p>
+  <dl>
+  
+  </dl>
+  
+  
+</div>
+
+<div id="delete">
+  <h2>Event Comment Unlike</h2>
+  <div id="deleteuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">DELETE</strong> /:urlname/events/:event_id/comments/:comment_id/likes
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Unlike a given event comment</p>
+  </div>
+  
+  <h3 id="deleteparams" class="rounded-all">Request Parameters</h3>
+  <div class="deleteparam-notes"><p>A path parameter for <strong>:urlname</strong>,  <strong>:event_id</strong>,
+and <strong>:comment_id</strong> is required</p>
+<p>The <strong>:comment_id</strong> should be formatted as <code>comment:{comment_id}</code> for top level comments
+or <code>reply:{reply_id}</code> for comment replies.</p>
+<p>To obtain a list of comments and their replies for an event, see the
+<a href="/meetup_api/docs/:urlname/events/:event_id/comments/">event comments</a> endpoint</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="deleteresponse" class="rounded-all">Response</h3>
+  <p>Returns an HTTP 204 response if unlike was successful, 401 if unauthorized.</p>
+  <dl>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

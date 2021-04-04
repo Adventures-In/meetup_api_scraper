@@ -1,0 +1,188 @@
+
+        
+
+<div id="status">
+  <h2>Block status</h2>
+  <div id="statusuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /self/blocks/:member_id
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">reporting</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Checks the block status for a target member relative to the authenticated member</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/self/blocks/:member_id">Try it in the console</a></p>
+  <h3 id="statusparams" class="rounded-all">Request Parameters</h3>
+  <div class="statusparam-notes"><p>A valid member_id path parameter for the target member is required.</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="statusresponse" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="status"><span class="">status</span></dt>
+    <dd class="rounded-all">
+    <p>The block status for the target member. This may be one of 'blocked' or 'none'</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+<div id="block">
+  <h2>Block member</h2>
+  <div id="blockuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /self/blocks/:member_id
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">reporting</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Blocks a target member from various interactions with the authenticated member on the platform</p>
+  </div>
+  
+  <h3 id="blockparams" class="rounded-all">Request Parameters</h3>
+  <div class="blockparam-notes"><p>A valid member_id path parameter for the target member is required. This method requires the oauth <code>reporting</code> scope for oauth-authenticated requests</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="comments"><span class="">comments</span></dt>
+    <dd class="rounded-all"><p>An optional string of text describing why you have chosen to block this member</p></dd>
+  
+    <dt class="align-right bold" title="report"><span class="">report</span></dt>
+    <dd class="rounded-all"><p>An optional value that represents a type of abuse the target member is being blocked for. Acceptable values include one of the following: fake, impersonation, inappropriate_photo, offsite, underage</p></dd>
+  
+  </dl>
+  
+  <h3 id="blockresponse" class="rounded-all">Response</h3>
+  <p>A successful block request will result in a 204 No Content response</p>
+  <dl>
+  
+  </dl>
+  
+  
+  <h3 id="blockexamples" class="rounded-all">Examples</h3>
+  <p>Block a member {member_id} as a member authorized with the token {token} and the scope "abuse"</p>
+<pre><code>curl -X POST -H "Authorization: Bearer {token}" \
+  "https://api.meetup.com/self/blocks/{member_id}"
+</code></pre>
+  
+</div>
+
+<div id="unblock">
+  <h2>Unblock member</h2>
+  <div id="unblockuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">DELETE</strong> /self/blocks/:member_id
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">reporting</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Unblocks a previously blocked member from various interactions with the authenticated member on the platform</p>
+  </div>
+  
+  <h3 id="unblockparams" class="rounded-all">Request Parameters</h3>
+  <div class="unblockparam-notes"><p>A valid member_id path parameter for the target member is required. This method requires the oauth <code>reporting</code> scope for oauth-authenticated requests.</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="unblockresponse" class="rounded-all">Response</h3>
+  <p>A successful unblock request will result in a 204 No Content response</p>
+  <dl>
+  
+  </dl>
+  
+  
+  <h3 id="unblockexamples" class="rounded-all">Examples</h3>
+  <p>Block a member {member_id} as a member authorized with the token {token} and scope "abuse"</p>
+<pre><code>curl -X DELETE -H "Authorization: Bearer {token}" \
+  "https://api.meetup.com/self/blocks/{member_id}"
+</code></pre>
+  
+</div>
+
+
+      

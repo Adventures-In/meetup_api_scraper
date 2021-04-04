@@ -1,0 +1,123 @@
+
+        
+
+<div id="">
+  <h2>Get Pro RSVP registration responses</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /pro/:urlname/rsvps/survey
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Get the list of RSVP registration responses for the events across the entire Pro network</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/pro/:urlname/rsvps/survey">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="cursor"><span class="">cursor</span></dt>
+    <dd class="rounded-all"><p>String: identifier for the next result page</p></dd>
+  
+    <dt class="align-right bold" title="events"><span class="">events</span></dt>
+    <dd class="rounded-all"><p>String: Comma separated list of event id. Max: 99 items</p></dd>
+  
+    <dt class="align-right bold" title="size"><span class="">size</span></dt>
+    <dd class="rounded-all"><p>Integer: amount of results for one request. Max: 1000 items</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="cursor"><span class="">cursor</span></dt>
+    <dd class="rounded-all">
+    <p>Identifier for next result page</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="results"><span class="">results</span></dt>
+    <dd class="rounded-all">
+    <p>List of registration responses</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="answers"><span class="">answers</span></dt>
+       <dd class="rounded-all">
+        <p>List of answers to event survey questions asked when the member RSVP'd in the order asked, only available to organizers and assistant organizers</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="question"><span class="">question</span></dt>
+            <dd class="rounded-all"><p>Translated question title</p></dd>
+            
+            <dt class="align-right bold" title="response"><span class="">response</span></dt>
+            <dd class="rounded-all"><p>Answer</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="chapterName"><span class="">chapterName</span></dt>
+       <dd class="rounded-all">
+        <p>Group name</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="email"><span class="">email</span></dt>
+       <dd class="rounded-all">
+        <p>Member email</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="eventTitle"><span class="">eventTitle</span></dt>
+       <dd class="rounded-all">
+        <p>Event title</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="updatedAt"><span class="">updatedAt</span></dt>
+       <dd class="rounded-all">
+        <p>Timestamp when registration was updated</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

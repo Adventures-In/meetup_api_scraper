@@ -1,0 +1,140 @@
+
+        
+
+<div id="">
+  <h2>batch</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /batch
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Performs multiple API requests in batch, useful for reducing HTTP network requests. This method is only available for OAuth authentication</p>
+  </div>
+  
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>You may supply a limited number of API requests, typically 1 to 4, in one batch request using the required "requests" parameter.
+ Each of these individual batched requests will be tallied separately the same way they would when making individual requests.
+ The batch request itself will not be tallied. As such, batch requests can not be rate limited.
+ The only failures that you should account for are an authentication failure or a malformed JSON encoding of requests provided with the "requests" parameter.</p>
+<h4>Composing batch requests</h4>
+<p>Requests should be provided within a JSON-encoded array in the following format attached the <code>requests</code> parameter
+ within a POST body</p>
+<pre> [{
+   "path": "/members/self",
+   "ref":  "me",
+   "params": {
+     "only": "name,id"
+   }
+ }]
+</pre>
+
+<p>Only "path" is required for HTTP GET requests. "path" represents the API path for the method. "ref" provides a way to tag a request in a batch
+ with a label that you can associated with its response in the body of the batch response. This will default to the
+ provided "path". You may also supply a "params" key with a JSON object representing the parameters provided for the
+ request. At this time only HTTP GET, DELETE, and POST requests are supported. You may specify one of these as a "method" property of the request.
+ Methods requiring a multipart form POST are currently not supported. You may also supply headers on a per request basis by adding a "headers" field to the
+ JSON object representing the request as key value pairs of strings.</p>
+<h4>Interpreting batch responses</h4>
+<p>A response to a batch request will be in the format</p>
+<pre> [{
+   "path": "/member/self"
+   "status": 200,
+   "ref": "me",
+   "body": {
+     "id": 1234,
+     "name": "Noah"
+   },
+   "headers": {
+     "key": "value"
+    }
+ }]
+</pre>
+
+<p>"path" is the path of the method invoked. "status" represents the HTTP status code returned for the request.
+ "ref" is the name provided for the inbound request. "body" is the JSON-encoded response from the given API request.
+ "headers" is a JSON-encoded object representing the headers returned for that request.
+ These requests may fail the same way they would when making individual requests. The response will indicate these
+ failures.</p>
+<p>In order to preserve server resources and return batch responses within a reasonable amount of time, individual requests may timeout
+ if a response is not computed within a reasonable amount of time. This allows for some requests to fail and others to pass which is a nicer
+ alternative to an all or nothing response timeout.
+ A timed out request can be identified by inspecting its response's "status" field for a value of 504. A timed out response may look like.</p>
+<pre> [{
+   "status" : 504,
+   "body" : {
+    "errors" : [{"code": "request_timeout", "message":"request timed out"}]
+   },
+   "headers" : { ... },
+   "path" : "/end/point",
+   "ref" : "request_ref"
+ }]
+</pre></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="requests"><span class="param_required">requests</span></dt>
+    <dd class="rounded-all"><p>JSON-encoding of multiple request objects as described in the parameter notes</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>The response will be a JSON-encoded array of responses to requests defined in the batch request</p>
+  <dl>
+  
+  </dl>
+  
+  
+  <h3 id="examples" class="rounded-all">Examples</h3>
+  <p>Below is an example of making batch request issued by the command line program, curl</p>
+<pre># define a file containing the request body containing the requests to execute
+cat batch.requests
+requests=[{
+  "path":"/members/self"
+},{
+  "path": "/self/events",
+  "params": {
+    "rsvp": "yes",
+    "only":"name,local_time"
+  }
+}]
+
+# perform an HTTP POST request with the body set to the contents of the batch.requests file
+curl -H "Authorization: Bearer $OAUTH2_ACCESS_TOKEN" https://api.meetup.com/batch -d @batch.requests
+</pre>
+
+<p>You may also discard fields as you can do with any other method. Below is an example of only fetching the bodies of the responses
+ to the requests.</p>
+<pre>curl -H "Authorization: Bearer $OAUTH2_ACCESS_TOKEN" https://api.meetup.com/batch?only=body -d @batch.requests
+</pre>
+  
+</div>
+
+
+      

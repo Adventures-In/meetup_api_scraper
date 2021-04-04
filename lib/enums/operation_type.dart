@@ -9,4 +9,18 @@ class OperationTypeEnum {
     }
     return OperationType.unknown;
   }
+
+  static const List<String> idValues = [
+    'post',
+    'get',
+    'delete',
+    'edit',
+  ];
+
+  static const Map<OperationType, String> idValueOf = {
+    OperationType.post: 'post',
+    OperationType.get: 'get',
+    OperationType.delete: 'delete',
+    OperationType.patch: 'edit',
+  };
 }

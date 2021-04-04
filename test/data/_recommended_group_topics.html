@@ -1,0 +1,115 @@
+
+        
+
+<div id="">
+  <h2>Recommend Group Topics</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /recommended/group_topics
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Recommends suggestions for group topics based on a text search or other topics</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/recommended/group_topics">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="exclude_topics"><span class="">exclude_topics</span></dt>
+    <dd class="rounded-all"><p>A comma-delimited list of topic ids to exclude from the recommendations</p></dd>
+  
+    <dt class="align-right bold" title="lang"><span class="">lang</span></dt>
+    <dd class="rounded-all"><p>Defines a language preference for ordering results. Valid values are en-USen-AUde-DEeses-ESfr-FRit-ITpt-BRja-JPnl-NLko-KRpl-PLth-THtr-TRru-RUsv-SEpt-brpl-plit-itsv-seja-jpen-auru-rude-deen-usth-thtr-tres-esnl-nlfr-frko-krendefritptjanlkoplthtrrusv. You may also substitute this with the Accept-Language header</p></dd>
+  
+    <dt class="align-right bold" title="other_topics"><span class="">other_topics</span></dt>
+    <dd class="rounded-all"><p>A comma-delimited list of topic ids to inform recommendations</p></dd>
+  
+    <dt class="align-right bold" title="page"><span class="">page</span></dt>
+    <dd class="rounded-all"><p>Target number of recommendations to return. Defaults to 36.</p></dd>
+  
+    <dt class="align-right bold" title="text"><span class="">text</span></dt>
+    <dd class="rounded-all"><p>Free form text search</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>Returns list of topic object</p>
+  <dl>
+   
+    <dt class="align-right bold" title="description"><span class="">description</span></dt>
+    <dd class="rounded-all">
+    <p>The description of the topic</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="group_count"><span class="">group_count</span></dt>
+    <dd class="rounded-all">
+    <p>The number of groups using this topic</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Numeric topic id</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="lang"><span class="">lang</span></dt>
+    <dd class="rounded-all">
+    <p>Language topic originates from</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member_count"><span class="">member_count</span></dt>
+    <dd class="rounded-all">
+    <p>The number of members interested in this topic</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="name"><span class="">name</span></dt>
+    <dd class="rounded-all">
+    <p>Display name of the topic</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="urlkey"><span class="">urlkey</span></dt>
+    <dd class="rounded-all">
+    <p>The unique keyword used to identify this topic</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

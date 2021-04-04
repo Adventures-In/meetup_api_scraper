@@ -1,0 +1,833 @@
+
+        
+
+<div id="">
+  <h2>Find Upcoming Events</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /find/upcoming_events
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Returns a list of upcoming events</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/find/upcoming_events">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>By default, the events returned will be based on the hosting groups near the authenticated member's location.
+To customize this location, send a valid "lat" and "lon" parameter combination reflecting a desired location.</p>
+<p>You may filter results using an topic category identifier from the <a href="/meetup_api/docs/find/topic_categories/">Topic Categories API</a></p>
+<p>You may specify 'fields' to expand response events with corresponded fields</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="end_date_range"><span class="">end_date_range</span></dt>
+    <dd class="rounded-all"><p>Return events that start before this date. The date must follow this format: YYYY-MM-DDTHH:MM:SS.</p></dd>
+  
+    <dt class="align-right bold" title="end_time_range"><span class="">end_time_range</span></dt>
+    <dd class="rounded-all"><p>Return events that start before this time. The time must follow this format: HH:MM:SS. The time is exlusive. A start_time_range must also be present</p></dd>
+  
+    <dt class="align-right bold" title="excluded_groups"><span class="">excluded_groups</span></dt>
+    <dd class="rounded-all"><p>IDs for groups to exclude from the returned events. excluded_groups overrides the include and only
+values for self_groups. In other words, if excluded_groups is nonempty,
+then groups specified in excluded_groups will be excluded
+even if they are in the set of groups the authenticated member belongs to.</p></dd>
+  
+    <dt class="align-right bold" title="fields"><span class="">fields</span></dt>
+    <dd class="rounded-all"><p>A comma-delimited list of optional fields to populate in the response</p></dd>
+  
+    <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+    <dd class="rounded-all"><p>Approximate target latitude</p></dd>
+  
+    <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+    <dd class="rounded-all"><p>Approximate target longitude</p></dd>
+  
+    <dt class="align-right bold" title="order"><span class="">order</span></dt>
+    <dd class="rounded-all"><p>The sort order of returned events.
+Valid values include: 'best' and 'time'.
+'best' orders events by recommendation score, while 'time' orders events by the by the event's start time in increasing order.
+Defaults to 'best'.</p></dd>
+  
+    <dt class="align-right bold" title="page"><span class="">page</span></dt>
+    <dd class="rounded-all"><p>A target minimum number of events to return in a single page of results. The number returned is non-deterministic but a best-effort attempt will be made to return at least some. Defaults to 32</p></dd>
+  
+    <dt class="align-right bold" title="radius"><span class="">radius</span></dt>
+    <dd class="rounded-all"><p>Radius in miles. May be 0.0-100.0, 'global' or 'smart', a dynamic radius based on the number of active groups in the area. Defaults to member's preferred radius</p></dd>
+  
+    <dt class="align-right bold" title="self_groups"><span class="">self_groups</span></dt>
+    <dd class="rounded-all"><p>set to 'include' or 'exclude' or 'only' get groups that the member belongs to. Defaults to 'include.'
+When self_groups is set to only and the order is set to time, the following fields are disregarded: page, end_date_range, lat and lon.</p></dd>
+  
+    <dt class="align-right bold" title="start_date_range"><span class="">start_date_range</span></dt>
+    <dd class="rounded-all"><p>Return events that start after this date. The date must follow this format: YYYY-MM-DDTHH:MM:SS.
+It defaults to the current date and time.</p></dd>
+  
+    <dt class="align-right bold" title="start_time_range"><span class="">start_time_range</span></dt>
+    <dd class="rounded-all"><p>Return events that start after this time. The time must follow this format: HH:MM:SS. The time is inclusive. An end_time_range must also be present.</p></dd>
+  
+    <dt class="align-right bold" title="text"><span class="">text</span></dt>
+    <dd class="rounded-all"><p>Full text search query</p></dd>
+  
+    <dt class="align-right bold" title="topic_category"><span class="">topic_category</span></dt>
+    <dd class="rounded-all"><p>Numeric topic category identifier for filtering recommendations by a topic category</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>Returns a list of event objects and the resolved city</p>
+  <dl>
+   
+    <dt class="align-right bold" title="city"><span class="">city</span></dt>
+    <dd class="rounded-all">
+    <p>The current city in context</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="city"><span class="">city</span></dt>
+       <dd class="rounded-all">
+        <p>The name of the city</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="country"><span class="">country</span></dt>
+       <dd class="rounded-all">
+        <p>The ISO_3166-1 country code for the country which contains the city</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric identifier of the city</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+       <dd class="rounded-all">
+        <p>The latitude of the city</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+       <dd class="rounded-all">
+        <p>The longitude of the city</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="member_count"><span class="">member_count</span></dt>
+       <dd class="rounded-all">
+        <p>The number of Meetup members in the city</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name_string"><span class="">name_string</span></dt>
+       <dd class="rounded-all">
+        <p>The full name of the city, as returned by query search, if applicable</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="state"><span class="">state</span></dt>
+       <dd class="rounded-all">
+        <p>The state which contains the city, if applicable</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="zip"><span class="">zip</span></dt>
+       <dd class="rounded-all">
+        <p>The zip code of the city. For cities in countries without ZIP codes, a placeholder will be returned</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="events"><span class="">events</span></dt>
+    <dd class="rounded-all">
+    <p>List of events</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="attendance_count"><span class="">attendance_count</span></dt>
+       <dd class="rounded-all">
+        <p>Number of all members marked as attended, yes RSVPs that were not changed by attendance and their guests</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="attendance_sample"><span class="">attendance_sample</span></dt>
+       <dd class="rounded-all">
+        <p>A small collection of members marked as attended and yes RSVPs that were not changed by attendance</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="attendee_sample"><span class="">attendee_sample</span></dt>
+       <dd class="rounded-all">
+        <p>A small collection of attendance records of members marked as attended and yes RSVPs that were not changed by attendance. For upcoming events, this represents collection of yes RSVPs</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="comment_count"><span class="">comment_count</span></dt>
+       <dd class="rounded-all">
+        <p>An aggregate count of all comments and replies for a given event, returned when fields request parameter value includes 'comment_count'</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="created"><span class="">created</span></dt>
+       <dd class="rounded-all">
+        <p>Creation time of the event, in milliseconds since the epoch</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="date_in_series_pattern"><span class="">date_in_series_pattern</span></dt>
+       <dd class="rounded-all">
+        <p>Is event date matches the series pattern</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="description"><span class="">description</span></dt>
+       <dd class="rounded-all">
+        <p>Description of the event in HTML. Email addresses and phone numbers will be masked for non-members</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="description_images"><span class="">description_images</span></dt>
+       <dd class="rounded-all">
+        <p>A list of image urls included in the event description.  returned when "fields" request parameter value contains "description_images, only supported for GET /event/:id currently"</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="duration"><span class="">duration</span></dt>
+       <dd class="rounded-all">
+        <p>Scheduled event duration in milliseconds, if an end time is specified by the organizer. When not present, a default of 3 hours may be assumed by applications</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="event_hosts"><span class="">event_hosts</span></dt>
+       <dd class="rounded-all">
+        <p>List of members hosting the event, returned when fields request parameter value includes 'event_hosts'</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="host_count"><span class="">host_count</span></dt>
+            <dd class="rounded-all"><p>Number of times member hosted for group</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Host member's id</p></dd>
+            
+            <dt class="align-right bold" title="intro"><span class="">intro</span></dt>
+            <dd class="rounded-all"><p>Host member's introduction</p></dd>
+            
+            <dt class="align-right bold" title="join_date"><span class="">join_date</span></dt>
+            <dd class="rounded-all"><p>Group join date in milliseconds since epoch</p></dd>
+            
+            <dt class="align-right bold" title="name"><span class="">name</span></dt>
+            <dd class="rounded-all"><p>Host member's name</p></dd>
+            
+            <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+            <dd class="rounded-all"><p>Member photo if one exists</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="featured"><span class="">featured</span></dt>
+       <dd class="rounded-all">
+        <p>Boolean indicator of whether or not a given event is featured, returned when fields request parameter value includes 'featured'</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="featured_photo"><span class="">featured_photo</span></dt>
+       <dd class="rounded-all">
+        <p>A featured photo for this event, returned when the 'fields' request paramater includes 'featured_photo'</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="fee"><span class="">fee</span></dt>
+       <dd class="rounded-all">
+        <p>Ticketing fee information for events that support payments</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="accepts"><span class="">accepts</span></dt>
+            <dd class="rounded-all"><p>Acceptable methods of payments may be one of "paypal", "wepay", "stripe", or "cash"</p></dd>
+            
+            <dt class="align-right bold" title="amount"><span class="">amount</span></dt>
+            <dd class="rounded-all"><p>Amount of the fee</p></dd>
+            
+            <dt class="align-right bold" title="currency"><span class="">currency</span></dt>
+            <dd class="rounded-all"><p>Currency accepted for fee</p></dd>
+            
+            <dt class="align-right bold" title="description"><span class="">description</span></dt>
+            <dd class="rounded-all"><p>Fee description, typically "per-person"</p></dd>
+            
+            <dt class="align-right bold" title="label"><span class="">label</span></dt>
+            <dd class="rounded-all"><p>Label for fee, typically "Price"</p></dd>
+            
+            <dt class="align-right bold" title="required"><span class="">required</span></dt>
+            <dd class="rounded-all"><p>Boolean flag indicating if this fee is required to RSVP</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="fee_options"><span class="">fee_options</span></dt>
+       <dd class="rounded-all">
+        <p>Payment options for event ticketing, returned when the 'fields' request parameter value includes 'fee_options'</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="currencies"><span class="">currencies</span></dt>
+            <dd class="rounded-all"><p>Acceptable currencies for the payment method specified by type</p></dd>
+            
+            <dt class="align-right bold" title="is_setup"><span class="">is_setup</span></dt>
+            <dd class="rounded-all"><p>A boolean set to true if the payment method specified by 'type' is set up for the group</p></dd>
+            
+            <dt class="align-right bold" title="setup_link"><span class="">setup_link</span></dt>
+            <dd class="rounded-all"><p>The URL for setting up the payment method specified by 'type'. This is returned if the payment method specified by 'type' is not set up for the group and the member has the permission to set it up</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Acceptable methods of payments may be one of Set(stripe, wepay, paypal, none, cash)</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="group"><span class="">group</span></dt>
+       <dd class="rounded-all">
+        <p>Information about group hosting the event</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="category"><span class="">category</span></dt>
+            <dd class="rounded-all"><p>Category group belongs to, returned when fields request parameter value includes 'group_category'</p></dd>
+            
+            <dt class="align-right bold" title="country"><span class="">country</span></dt>
+            <dd class="rounded-all"><p>Country of the group</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric identifier for the group</p></dd>
+            
+            <dt class="align-right bold" title="join_info"><span class="">join_info</span></dt>
+            <dd class="rounded-all"><p>Lists any questions requested when joining and required fields. Returned with "fields" request parameter value includes "group_join_info"</p></dd>
+            
+            <dt class="align-right bold" title="join_mode"><span class="">join_mode</span></dt>
+            <dd class="rounded-all"><p>Indicator of how new members may be able to join. be one of "open", "approval" or "closed"</p></dd>
+            
+            <dt class="align-right bold" title="key_photo"><span class="">key_photo</span></dt>
+            <dd class="rounded-all"><p>Group primary photo, returned when fields request parameter value includes 'group_key_photo'</p></dd>
+            
+            <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+            <dd class="rounded-all"><p>Approximate group latitude</p></dd>
+            
+            <dt class="align-right bold" title="localized_location"><span class="">localized_location</span></dt>
+            <dd class="rounded-all"><p>City/State or City/Country of the group</p></dd>
+            
+            <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+            <dd class="rounded-all"><p>Approximate group longitude</p></dd>
+            
+            <dt class="align-right bold" title="membership_dues"><span class="">membership_dues</span></dt>
+            <dd class="rounded-all"><p>Membership dues information associated with hosting group, returned when fields request parameter value includes 'group_membership_dues'</p></dd>
+            
+            <dt class="align-right bold" title="meta_category"><span class="">meta_category</span></dt>
+            <dd class="rounded-all"><p>The meta category of the group, if the group has one, returned when fields request parameter value inclues 'meta_category'</p></dd>
+            
+            <dt class="align-right bold" title="name"><span class="">name</span></dt>
+            <dd class="rounded-all"><p>Name of the group</p></dd>
+            
+            <dt class="align-right bold" title="past_event_count"><span class="">past_event_count</span></dt>
+            <dd class="rounded-all"><p>The number of past events belonging to the group, returned when "fields" includes "group_past_event_count"</p></dd>
+            
+            <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+            <dd class="rounded-all"><p>Photo associated with group, returned when fields request parameter value includes 'group_photo'</p></dd>
+            
+            <dt class="align-right bold" title="photo_gradient"><span class="">photo_gradient</span></dt>
+            <dd class="rounded-all"><p>Color combination used to generate group duotone, returned when fields request parameter value includes 'group_photo_gradient'</p></dd>
+            
+            <dt class="align-right bold" title="pro_network"><span class="">pro_network</span></dt>
+            <dd class="rounded-all"><p>Information on group's Pro organization, returned when "fields" request parameter value includes "group_pro_network"</p></dd>
+            
+            <dt class="align-right bold" title="region"><span class="">region</span></dt>
+            <dd class="rounded-all"><p>Language and region of the group</p></dd>
+            
+            <dt class="align-right bold" title="self"><span class="">self</span></dt>
+            <dd class="rounded-all"><p>Information pertaining to the authenticated member with respect to the group, returned when fields request parameter value includes 'group_self_profile', 'group_self_actions', 'group_self_membership_dues', or 'group_self_status'</p></dd>
+            
+            <dt class="align-right bold" title="state"><span class="">state</span></dt>
+            <dd class="rounded-all"><p>State of the group</p></dd>
+            
+            <dt class="align-right bold" title="timezone"><span class="">timezone</span></dt>
+            <dd class="rounded-all"><p>Timezone of group</p></dd>
+            
+            <dt class="align-right bold" title="topics"><span class="">topics</span></dt>
+            <dd class="rounded-all"><p>Topics related to the group, returned when fields request parameter value includes 'group_topics'</p></dd>
+            
+            <dt class="align-right bold" title="urlname"><span class="">urlname</span></dt>
+            <dd class="rounded-all"><p>Alphanumeric urlname identifier for the group</p></dd>
+            
+            <dt class="align-right bold" title="visibility"><span class="">visibility</span></dt>
+            <dd class="rounded-all"><p>Group visibility, returned when fields request parameter value includes 'group_visibility'. Value may be "public", "public_limited", or "members".</p></dd>
+            
+            <dt class="align-right bold" title="who"><span class="">who</span></dt>
+            <dd class="rounded-all"><p>What the group calls its members</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="how_to_find_us"><span class="">how_to_find_us</span></dt>
+       <dd class="rounded-all">
+        <p>Additional information on how to find members at a venue when provided by an organizer, returned when fields request parameter value includes 'how_to_find_us'</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>A unique alphanumeric identifier for event</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="is_online_event"><span class="">is_online_event</span></dt>
+       <dd class="rounded-all">
+        <p>Is event happening online</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="link"><span class="">link</span></dt>
+       <dd class="rounded-all">
+        <p>Link to event on meetup.com</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="local_date"><span class="">local_date</span></dt>
+       <dd class="rounded-all">
+        <p>The local date of the Meetup in ISO 8601 format</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="local_time"><span class="">local_time</span></dt>
+       <dd class="rounded-all">
+        <p>The local time of the Meetup in ISO 8601 format</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="manual_attendance_count"><span class="">manual_attendance_count</span></dt>
+       <dd class="rounded-all">
+        <p>Manually entered total attendee headcount, if any exists</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of the event</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="past_event_count_inclusive"><span class="">past_event_count_inclusive</span></dt>
+       <dd class="rounded-all">
+        <p>Number of past events that happened before and including this event. Returned when "fields" request parameter value contains "past_event_count_inclusive"</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo_album"><span class="">photo_album</span></dt>
+       <dd class="rounded-all">
+        <p>Information about photo uploads for this event, returned when fields request parameter value includes 'photo_album'</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="event"><span class="">event</span></dt>
+            <dd class="rounded-all"><p>Event photo album belongs to. This will be absent if the album
+is not associated with an event</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Unique numeric identifier for photo album</p></dd>
+            
+            <dt class="align-right bold" title="photo_count"><span class="">photo_count</span></dt>
+            <dd class="rounded-all"><p>Number of photos uploaded</p></dd>
+            
+            <dt class="align-right bold" title="photo_sample"><span class="">photo_sample</span></dt>
+            <dd class="rounded-all"><p>A small collection of photos uploaded for this event</p></dd>
+            
+            <dt class="align-right bold" title="title"><span class="">title</span></dt>
+            <dd class="rounded-all"><p>Album title</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="plain_text_description"><span class="">plain_text_description</span></dt>
+       <dd class="rounded-all">
+        <p>Plain text version of the event description. Email addresses and photo numbers will be masked for non-members. Returned when "fields" request parameter value contains "plain_text_description"</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="plain_text_no_images_description"><span class="">plain_text_no_images_description</span></dt>
+       <dd class="rounded-all">
+        <p>Plain text version of the event description without images. Email addresses and photo numbers will be masked for non-members. Returned when "fields" request parameter value contains "plain_text_no_images_description"</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="rsvp_close_offset"><span class="">rsvp_close_offset</span></dt>
+       <dd class="rounded-all">
+        <p>The amount of time between when RSVPs close and the start time of the Meetup in ISO 8601 format</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="rsvp_limit"><span class="">rsvp_limit</span></dt>
+       <dd class="rounded-all">
+        <p>The number of "yes" RSVPS an event has capacity for</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="rsvp_open_offset"><span class="">rsvp_open_offset</span></dt>
+       <dd class="rounded-all">
+        <p>The amount of time between when RSVPs open and the start time of the Meetup in ISO 8601 format</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="rsvp_rules"><span class="">rsvp_rules</span></dt>
+       <dd class="rounded-all">
+        <p>Information about conditions that allow for member RSVPs, returned when fields request parameter value include 'rsvp_rules'</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="close_time"><span class="">close_time</span></dt>
+            <dd class="rounded-all"><p>UTC time that RSVPs will no longer be accepted, though organizers may close RSVPs earlier</p></dd>
+            
+            <dt class="align-right bold" title="closed"><span class="">closed</span></dt>
+            <dd class="rounded-all"><p>Boolean value indicating whether or not RSVPing was explicitly closed for the event.</p></dd>
+            
+            <dt class="align-right bold" title="guest_limit"><span class="">guest_limit</span></dt>
+            <dd class="rounded-all"><p>Number of guests members may include in their RSVP, 0 or more</p></dd>
+            
+            <dt class="align-right bold" title="open_time"><span class="">open_time</span></dt>
+            <dd class="rounded-all"><p>UTC time that members may begin to RSVP</p></dd>
+            
+            <dt class="align-right bold" title="refund_policy"><span class="">refund_policy</span></dt>
+            <dd class="rounded-all"><p>The organizer-defined terms for refunds. If this is defined, you must provide the authenticated member a way to access this information before they can RSVP. They will need to agree to these terms before they RSVP</p></dd>
+            
+            <dt class="align-right bold" title="waitlisting"><span class="">waitlisting</span></dt>
+            <dd class="rounded-all"><p>Wait list handling when RSVP limit is reached. Value may be one of 'auto', 'manual' or 'off'</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="rsvp_sample"><span class="">rsvp_sample</span></dt>
+       <dd class="rounded-all">
+        <p>A small collection RSVPs for members attending this event, returned when fields request parameter value includes 'rsvp_sample'</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="created"><span class="">created</span></dt>
+            <dd class="rounded-all"><p>Creation time of the RSVP, in milliseconds since the epoch</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Unique numeric identifier for the RSVP. May be -1 for events scheduled in the future</p></dd>
+            
+            <dt class="align-right bold" title="member"><span class="">member</span></dt>
+            <dd class="rounded-all"><p>Member who RSVP'd</p></dd>
+            
+            <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+            <dd class="rounded-all"><p>Last modified time of the RSVP, in milliseconds since the epoch</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="rsvpable"><span class="">rsvpable</span></dt>
+       <dd class="rounded-all">
+        <p>Boolean value indicating whether or not the authenticated member can RSVP or join the waitlist when the event is full.
+Returned when the "fields" request parameter value
+includes "rsvpable"</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="rsvpable_after_join"><span class="">rsvpable_after_join</span></dt>
+       <dd class="rounded-all">
+        <p>Boolean value indicating whether or not the authenticated member can RSVP
+after joining the hosting group.
+Returned when the "fields" request parameter
+includes "rsvpable_after_join"
+and the authenticated member is <em>not</em> a member of the
+group hosting this event</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="saved"><span class="">saved</span></dt>
+       <dd class="rounded-all">
+        <p>Whether the authorized member has saved the event, returned when fields request parameter value includes 'saved'</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="self"><span class="">self</span></dt>
+       <dd class="rounded-all">
+        <p>represents details particular to the authorized user, only present if requested and authenticated member is a member of the hosting group, returned when fields request parameter value includes 'self'</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="actions"><span class="">actions</span></dt>
+            <dd class="rounded-all"><p>List of actions the authenticated member may perform, potentially one or more of the following</p>
+<p>"announce" to announce the event to the group's members</p>
+<p>"attendance" to view or take attendance for the event</p>
+<p>"copy" the ability to copy an event</p>
+<p>"comment" the ability to post a comment or reply</p>
+<p>"payments" the ability to mark members as paid if the event is ticketed</p>
+<p>"publish" to publish a draft event</p>
+<p>"edit" to edit the event information</p>
+<p>"edit_hosts" to edit the hosts for the event</p>
+<p>"email_attendees" the ability to email event attendees</p>
+<p>"delete" to delete the event</p>
+<p>"rsvp" to RSVP yes or no to the event</p>
+<p>"wait" to get on the waiting list (using the same RSVP methods).</p>
+<p>"dues" if an organizer requires membership dues to RSVP and the authorized
+ member has not paid theirs</p>
+<p>"upload_photo" the ability to upload a photo for the event</p>
+<p>"cancel" the ability to cancel the event</p>
+<p>"close" the ability to close the RSVPs for the event</p>
+<p>"open" the ability to open the RSVPs for the event</p>
+<p>"invite" the ability to invite someone for the event</p>
+<p>"download_attendees" the ability to download the attendees list for the event</p>
+<p>"take_attendance" the ability to take attendance for the event</p>
+<p>"delete_cancelled" the ability to delete the event if it is cancelled</p></dd>
+            
+            <dt class="align-right bold" title="pay_status"><span class="">pay_status</span></dt>
+            <dd class="rounded-all"><p>The authenticated member's payment status. This may be one of 'none', 'paid', 'partially_paid', 'payment_pending', 'echeck_pending', 'refund_pending', 'partially_refunded', 'refunded'</p></dd>
+            
+            <dt class="align-right bold" title="role"><span class="">role</span></dt>
+            <dd class="rounded-all"><p>The authenticated member's role in within the group, if any. This may be one of: Organizer, Assistant Organizer, Event Organizer, etc.</p></dd>
+            
+            <dt class="align-right bold" title="rsvp"><span class="">rsvp</span></dt>
+            <dd class="rounded-all"><p>Member's RSVP, if any</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="series"><span class="">series</span></dt>
+       <dd class="rounded-all">
+        <p>Returned when the "fields" request parameter value includes "series" for events that are part of a series of events</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="description"><span class="">description</span></dt>
+            <dd class="rounded-all"><p>Human displayable description of how often events in this series occur</p></dd>
+            
+            <dt class="align-right bold" title="end_date"><span class="">end_date</span></dt>
+            <dd class="rounded-all"><p>Date when this series ends/ended, in milliseconds since the epoch</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Unique numeric identifier for the series</p></dd>
+            
+            <dt class="align-right bold" title="monthly"><span class="">monthly</span></dt>
+            <dd class="rounded-all"><p>Returned for events that are part of a monthly recurring series of events</p></dd>
+            
+            <dt class="align-right bold" title="start_date"><span class="">start_date</span></dt>
+            <dd class="rounded-all"><p>Date when this series begins/began, in milliseconds since the epoch</p></dd>
+            
+            <dt class="align-right bold" title="template_event_id"><span class="">template_event_id</span></dt>
+            <dd class="rounded-all"><p>Unique numeric identifier for the template event of the series</p></dd>
+            
+            <dt class="align-right bold" title="weekly"><span class="">weekly</span></dt>
+            <dd class="rounded-all"><p>Returned for events that are part of a weekly recurring series of events</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="short_link"><span class="">short_link</span></dt>
+       <dd class="rounded-all">
+        <p>A shortened link for the event on meetup.com, returned when fields request parameter value includes "short_link"</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="simple_html_description"><span class="">simple_html_description</span></dt>
+       <dd class="rounded-all">
+        <p>Description of the event, in simple HTML source format. If this event's description was saved in simple HTML format, the description field will be an HTML translation of this source. Returned when the "fields"' request parameter contains "simple_html_description"</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="status"><span class="">status</span></dt>
+       <dd class="rounded-all">
+        <p>"cancelled", "upcoming", "past", "proposed", "suggested", or "draft"</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="survey_questions"><span class="">survey_questions</span></dt>
+       <dd class="rounded-all">
+        <p>List of organizer-defined survey questions intended to be asked of RSVPing members. Returned when the "fields"' request parameter contains "answers"</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric question identifier</p></dd>
+            
+            <dt class="align-right bold" title="question"><span class="">question</span></dt>
+            <dd class="rounded-all"><p>Question text</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="time"><span class="">time</span></dt>
+       <dd class="rounded-all">
+        <p>UTC start time of the event, in milliseconds since the epoch</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+       <dd class="rounded-all">
+        <p>Last modified time for the event in milliseconds since the epoch</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="utc_offset"><span class="">utc_offset</span></dt>
+       <dd class="rounded-all">
+        <p>The local offset from UTC time, in milliseconds</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="venue"><span class="">venue</span></dt>
+       <dd class="rounded-all">
+        <p>The event venue, present only if selected and not hidden by an organizer</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="address_1"><span class="">address_1</span></dt>
+            <dd class="rounded-all"><p>Line 1 of venue address</p></dd>
+            
+            <dt class="align-right bold" title="address_2"><span class="">address_2</span></dt>
+            <dd class="rounded-all"><p>Line 2 of venue address</p></dd>
+            
+            <dt class="align-right bold" title="address_3"><span class="">address_3</span></dt>
+            <dd class="rounded-all"><p>Line 3 of venue address</p></dd>
+            
+            <dt class="align-right bold" title="city"><span class="">city</span></dt>
+            <dd class="rounded-all"><p>City of venue</p></dd>
+            
+            <dt class="align-right bold" title="country"><span class="">country</span></dt>
+            <dd class="rounded-all"><p>Country code of venue</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Unique numeric venue id</p></dd>
+            
+            <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+            <dd class="rounded-all"><p>Approximate latitude</p></dd>
+            
+            <dt class="align-right bold" title="localized_country_name"><span class="">localized_country_name</span></dt>
+            <dd class="rounded-all"><p>The localized name of the venue's country</p></dd>
+            
+            <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+            <dd class="rounded-all"><p>Approximate longitude</p></dd>
+            
+            <dt class="align-right bold" title="name"><span class="">name</span></dt>
+            <dd class="rounded-all"><p>Venue name</p></dd>
+            
+            <dt class="align-right bold" title="phone"><span class="">phone</span></dt>
+            <dd class="rounded-all"><p>Phone number of venue</p></dd>
+            
+            <dt class="align-right bold" title="repinned"><span class="">repinned</span></dt>
+            <dd class="rounded-all"><p>true if the editor of the event altered the original venues pin location, false otherwise</p></dd>
+            
+            <dt class="align-right bold" title="state"><span class="">state</span></dt>
+            <dd class="rounded-all"><p>State of venue where available</p></dd>
+            
+            <dt class="align-right bold" title="zip"><span class="">zip</span></dt>
+            <dd class="rounded-all"><p>ZIP code if, venue is in US or Canada</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="venue_visibility"><span class="">venue_visibility</span></dt>
+       <dd class="rounded-all">
+        <p>Represents who can see the venue with a potential value of "members" or "public", returned when fields request parameter value includes "venue_visibility" and the authenticated member is a member of the group hosting the event</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="visibility"><span class="">visibility</span></dt>
+       <dd class="rounded-all">
+        <p>Event visibility: "public", "public_limited", or "members". Events in private groups that do not expose limited information are visible only to that group's members and should not be made public.</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="waitlist_count"><span class="">waitlist_count</span></dt>
+       <dd class="rounded-all">
+        <p>Number of members on the waitlist, if one exists</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="web_actions"><span class="">web_actions</span></dt>
+       <dd class="rounded-all">
+        <p>Set of "Invite" and google/yahoo/ical/outlook "Add to calendar" web actions</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="why"><span class="">why</span></dt>
+       <dd class="rounded-all">
+        <p>We should do this because...</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="yes_rsvp_count"><span class="">yes_rsvp_count</span></dt>
+       <dd class="rounded-all">
+        <p>Number of yes RSVPs including guests</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

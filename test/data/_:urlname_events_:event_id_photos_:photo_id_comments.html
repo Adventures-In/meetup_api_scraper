@@ -1,0 +1,361 @@
+
+        
+
+<div id="post">
+  <h2>Photo Comment</h2>
+  <div id="posturi" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /:urlname/events/:event_id/photos/:photo_id/comments
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">group_content_edit</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Creates a new photo comment</p>
+  </div>
+  
+  <h3 id="postparams" class="rounded-all">Request Parameters</h3>
+  <div class="postparam-notes"><p>Valid path parameters for <strong>:urlname</strong>, <strong>:event_id</strong>, and <strong>:photo_id</strong> are required.</p>
+<p>You must be a member of the group to post comments on the photo.</p>
+<p>In addition,
+authorized oauth applications must request the
+<a href="/meetup_api/auth/#group_content_edit_scope">group_content_edit</a> permission scope.</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="comment"><span class="param_required">comment</span></dt>
+    <dd class="rounded-all"><p>The text of the comment</p></dd>
+  
+  </dl>
+  
+  <h3 id="postresponse" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="comment"><span class="">comment</span></dt>
+    <dd class="rounded-all">
+    <p>The comment the member left for the photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="created"><span class="">created</span></dt>
+    <dd class="rounded-all">
+    <p>Time the comment was posted in milliseconds since the epoch</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Comment id</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member"><span class="">member</span></dt>
+    <dd class="rounded-all">
+    <p>The member that made the comment.</p>
+<p>In cases where member has since left the group,
+this member may have an id of 0</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="bio"><span class="">bio</span></dt>
+       <dd class="rounded-all">
+        <p>Intro of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="event_context"><span class="">event_context</span></dt>
+       <dd class="rounded-all">
+        <p>Member's context within the event. Only returned in the context of an event</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="host"><span class="">host</span></dt>
+            <dd class="rounded-all"><p>Boolean indicator for whether this member is a host for the event</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric member ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+       <dd class="rounded-all">
+        <p>Member photo, if available.
+Members who registered via Facebook may not have highres photos</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="role"><span class="">role</span></dt>
+       <dd class="rounded-all">
+        <p>The leadership role of this member within the group, if any.
+Value may be one of assistant_organizer, coorganizer, event_organizer, organizer</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="title"><span class="">title</span></dt>
+       <dd class="rounded-all">
+        <p>Organizer defined title of member. May be absent if not defined</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="self"><span class="">self</span></dt>
+    <dd class="rounded-all">
+    <p>Context for the authenticated member</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="actions"><span class="">actions</span></dt>
+       <dd class="rounded-all">
+        <p>A list of actions the authenticated member may perform on the comment.</p>
+<p>Value may be one or more of the following:</p>
+<p><strong>delete</strong> delete this comment</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+<div id="get">
+  <h2>Photo Comments</h2>
+  <div id="geturi" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /:urlname/events/:event_id/photos/:photo_id/comments
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Lists photo comments associated with a photo</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/:urlname/events/:event_id/photos/:photo_id/comments">Try it in the console</a></p>
+  <h3 id="getparams" class="rounded-all">Request Parameters</h3>
+  <div class="getparam-notes"><p>Valid path parameters for <strong>:urlname</strong>, <strong>:event_id</strong>, and <strong>:photo_id</strong> are required</p>
+<p>For groups that have limited public visibilty on their content, you must be a member of the group to see these</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="getresponse" class="rounded-all">Response</h3>
+  <p>Returns list of comments posted for a photo. This listing does not support pagination.</p>
+  <dl>
+   
+    <dt class="align-right bold" title="comment"><span class="">comment</span></dt>
+    <dd class="rounded-all">
+    <p>The comment the member left for the photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="created"><span class="">created</span></dt>
+    <dd class="rounded-all">
+    <p>Time the comment was posted in milliseconds since the epoch</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Comment id</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member"><span class="">member</span></dt>
+    <dd class="rounded-all">
+    <p>The member that made the comment.</p>
+<p>In cases where member has since left the group,
+this member may have an id of 0</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="bio"><span class="">bio</span></dt>
+       <dd class="rounded-all">
+        <p>Intro of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="event_context"><span class="">event_context</span></dt>
+       <dd class="rounded-all">
+        <p>Member's context within the event. Only returned in the context of an event</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="host"><span class="">host</span></dt>
+            <dd class="rounded-all"><p>Boolean indicator for whether this member is a host for the event</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric member ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+       <dd class="rounded-all">
+        <p>Member photo, if available.
+Members who registered via Facebook may not have highres photos</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="role"><span class="">role</span></dt>
+       <dd class="rounded-all">
+        <p>The leadership role of this member within the group, if any.
+Value may be one of assistant_organizer, coorganizer, event_organizer, organizer</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="title"><span class="">title</span></dt>
+       <dd class="rounded-all">
+        <p>Organizer defined title of member. May be absent if not defined</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="self"><span class="">self</span></dt>
+    <dd class="rounded-all">
+    <p>Context for the authenticated member</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="actions"><span class="">actions</span></dt>
+       <dd class="rounded-all">
+        <p>A list of actions the authenticated member may perform on the comment.</p>
+<p>Value may be one or more of the following:</p>
+<p><strong>delete</strong> delete this comment</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

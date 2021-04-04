@@ -1,0 +1,67 @@
+
+        
+
+<div id="delete">
+  <h2>Event comment delete</h2>
+  <div id="deleteuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">DELETE</strong> /:urlname/events/:event_id/comments/:comment_id
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">group_content_edit</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Deletes comments posted in events</p>
+  </div>
+  
+  <h3 id="deleteparams" class="rounded-all">Request Parameters</h3>
+  <div class="deleteparam-notes"><p>A path parameter for <strong>:urlname</strong>, <strong>:event_id</strong>,
+and <strong>:comment_id</strong> is required.</p>
+<p>The <strong>:comment_id</strong> path parameter should be formatted as <code>comment:{comment_id}</code>
+for top level comments or <code>reply:{reply_id}</code> for comment replies</p>
+<p>To obtain a list of comments and their replies for an event, see the
+<a href="/meetup_api/docs/:urlname/events/:event_id/comments/">event comments</a> endpoint</p>
+<p>Only organizers or the member that posted the comment may delete the comment</p>
+<p>In addition,
+authorized oauth applications should request the
+<a href="/meetup_api/auth/#group_content_edit_scope">group_content_edit</a> permission scope.</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="deleteresponse" class="rounded-all">Response</h3>
+  <p>A successful request will result in an HTTP 204 NoContent response</p>
+  <dl>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

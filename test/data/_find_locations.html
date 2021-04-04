@@ -1,0 +1,127 @@
+
+        
+
+<div id="">
+  <h2>Find locations</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /find/locations
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Provides a query interface for finding known locations</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/find/locations">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>This endpoint uses HTTP <a href="/meetup_api/docs/#v3_json">Link header based pagination</a>.</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+    <dd class="rounded-all"><p>Search for locations based on location latitude.
+Must be provided with "lon"</p></dd>
+  
+    <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+    <dd class="rounded-all"><p>Search for locations based on location longitude.
+Must be provided with "lat"</p></dd>
+  
+    <dt class="align-right bold" title="offset"><span class="">offset</span></dt>
+    <dd class="rounded-all"><p>The current offset in the paginated set, represented as an incrementing value</p></dd>
+  
+    <dt class="align-right bold" title="page"><span class="">page</span></dt>
+    <dd class="rounded-all"><p>The desired number of locations to return in a single set of results.
+Defaults to 200</p></dd>
+  
+    <dt class="align-right bold" title="query"><span class="">query</span></dt>
+    <dd class="rounded-all"><p>Search for locations based on city name or zip code</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>The order the results are returned in is based on the request parameters provided.
+By default, the nearest results based on "lat" and
+"lon" provided will be returned first,
+otherwise location with the highest member density will be returned first.</p>
+  <dl>
+   
+    <dt class="align-right bold" title="city"><span class="">city</span></dt>
+    <dd class="rounded-all">
+    <p>Name of city</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="country"><span class="">country</span></dt>
+    <dd class="rounded-all">
+    <p>Two character country code</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+    <dd class="rounded-all">
+    <p>Approximate location latitude</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="localized_country_name"><span class="">localized_country_name</span></dt>
+    <dd class="rounded-all">
+    <p>Localized name of country based on request's language information</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+    <dd class="rounded-all">
+    <p>Approximate location longitude</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="name_string"><span class="">name_string</span></dt>
+    <dd class="rounded-all">
+    <p>The full name of the location as preformatted string</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="state"><span class="">state</span></dt>
+    <dd class="rounded-all">
+    <p>Enclosing location state, if the location's country declares one</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="zip"><span class="">zip</span></dt>
+    <dd class="rounded-all">
+    <p>The location's zip code. For locations in countries without zip codes, a placeholder will be returned</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

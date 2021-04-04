@@ -1,0 +1,184 @@
+
+        
+
+<div id="">
+  <h2>Topic Categories</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /find/topic_categories
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Returns a list high level topic categories</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/find/topic_categories">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>No parameters are required. Authenticated members may request "best_topics"
+using the "fields" request parameter. By default these topics will selected
+based on groups in the member's location. Alternatively you may supply a "lat",
+"lon", and "radius" to center these topic suggestions</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="fields"><span class="">fields</span></dt>
+    <dd class="rounded-all"><p>A comma-limited list of optional fields to append to the response</p></dd>
+  
+    <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+    <dd class="rounded-all"><p>An optional approximate latitude to center a request for "best_topics". When not provided, lat associated with member is used</p></dd>
+  
+    <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+    <dd class="rounded-all"><p>An optional approximate longitude to center a request for "best_topics". When not provided, lon associated with member is used</p></dd>
+  
+    <dt class="align-right bold" title="radius"><span class="">radius</span></dt>
+    <dd class="rounded-all"><p>An radius (in miles) to center a request for "best_topics". When not provided, the members default alert radius is used</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>Returns a list of topic category objects</p>
+  <dl>
+   
+    <dt class="align-right bold" title="best_topics"><span class="">best_topics</span></dt>
+    <dd class="rounded-all">
+    <p>Represents the best topic matches for this category, returned when the "fields"
+request parameter value includes "best_topics"</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric topic id</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="lang"><span class="">lang</span></dt>
+       <dd class="rounded-all">
+        <p>Language topic originates from</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Display name of the topic</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="urlkey"><span class="">urlkey</span></dt>
+       <dd class="rounded-all">
+        <p>The unique keyword used to identify this topic</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="category_ids"><span class="">category_ids</span></dt>
+    <dd class="rounded-all">
+    <p>List of numeric category ids associated with this topic category</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Numeric topic-category id</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="name"><span class="">name</span></dt>
+    <dd class="rounded-all">
+    <p>Display name of the topic-category</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+    <dd class="rounded-all">
+    <p>Photo representing this category</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+       <dd class="rounded-all">
+        <p>A base url that can be use to construct a photo url from its components</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+       <dd class="rounded-all">
+        <p>Link for full sized photo</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric photo ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+       <dd class="rounded-all">
+        <p>Link for standard sized photo</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+       <dd class="rounded-all">
+        <p>Link for thumbnail sized photo</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="type"><span class="">type</span></dt>
+       <dd class="rounded-all">
+        <p>Type of photo. One of "event" or "member"</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="shortname"><span class="">shortname</span></dt>
+    <dd class="rounded-all">
+    <p>Unique string identifier for this category</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="sort_name"><span class="">sort_name</span></dt>
+    <dd class="rounded-all">
+    <p>Name used for sorting</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

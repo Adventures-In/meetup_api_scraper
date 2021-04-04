@@ -1,0 +1,297 @@
+
+        
+
+<div id="">
+  <h2>Clicked Notifications</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /notifications/clicked
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Marks groups of <a href="/meetup_api/docs/notifications/">notifications</a> as clicked.</p>
+  </div>
+  
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="notif_id"><span class="">notif_id</span></dt>
+    <dd class="rounded-all"><p>The id of the notification to set as clicked</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>The response includes a JSON-encoded list of current notification items</p>
+  <dl>
+   
+    <dt class="align-right bold" title="category"><span class="">category</span></dt>
+    <dd class="rounded-all">
+    <p>Identifier indicating a high level categorization of related kinds.</p>
+<p>This may be one of comment, default, event, group, money, photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>A unique identifier for a notification</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="important"><span class="">important</span></dt>
+    <dd class="rounded-all">
+    <p>True or False indicating a notification's level of importance</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="kind"><span class="">kind</span></dt>
+    <dd class="rounded-all">
+    <p>Identifier indicating the kind of notification.</p>
+<p>This may be one of attendance_reminder, comment, custom, donation_expire_notice, donation_potential_payment, dues, dues_confirm, dues_trial_notice, event_announce, event_announce_to_orgs, event_announce_untrusted, event_cancel, event_change, event_interest_org_push, event_reminder, external_url, final_attendance_reminder, group_announce, group_announce_push, invitation_acceptance, join, like, mug_comm_announce, mug_comm_comment, mug_comm_comment_like, mug_comm_conversation_like, mug_comm_invite, org_approve, outside_mup_rec, pending_member, photo, photo_tag, post_attendance, post_event_feedback, reply, rsvp, rsvp_confirm, saved_event_reminder, spot_open, webview_url</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="link"><span class="">link</span></dt>
+    <dd class="rounded-all">
+    <p>Link to resource notification was triggered by</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+    <dd class="rounded-all">
+    <p>A photo related to the notifications. Potentially absent</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+       <dd class="rounded-all">
+        <p>A base url that can be use to construct a photo url from its components</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+       <dd class="rounded-all">
+        <p>Link for full sized photo</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric photo ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+       <dd class="rounded-all">
+        <p>Link for standard sized photo</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+       <dd class="rounded-all">
+        <p>Link for thumbnail sized photo</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="type"><span class="">type</span></dt>
+       <dd class="rounded-all">
+        <p>Type of photo. One of "event" or "member"</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="photo_type"><span class="">photo_type</span></dt>
+    <dd class="rounded-all">
+    <p>Type of photo, event or member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="read"><span class="">read</span></dt>
+    <dd class="rounded-all">
+    <p>True or False indicating whether a notification has been read</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="self"><span class="">self</span></dt>
+    <dd class="rounded-all">
+    <p>Information pertaining the authorized member associated with this notification</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="action"><span class="">action</span></dt>
+       <dd class="rounded-all">
+        <p>An action that may be performed on this notification.</p>
+<p>For <code>group_announce</code> notifications this may be 'instant_join', meaning the group
+associated with the notification may be joined without filling out profile
+information, or 'form_join', the group associated with the notification requires
+some join information.</p>
+<p><code>event_announce</code> and <code>spot_open</code> notifications this may be 'instant_rsvp', meaning
+the event may be RSVP'd to without requiring additional input, or 'form_rsvp',
+meaning the event may require some input on the current member's behalf before
+RSVPing.</p>
+<p>For <code>event_reminder</code> notifications this may be 'instant_rsvp' if recipient is
+a non-rsvper or 'instant_rsvp_no' if recipient is a yes rsvper.</p>
+<p>For <code>pending_member</code> notifications this may be 'approve_member'.</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="setting"><span class="">setting</span></dt>
+    <dd class="rounded-all">
+    <p>The setting that controls the member's preference for receiving sendings of this kind of notification</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="email"><span class="">email</span></dt>
+       <dd class="rounded-all">
+        <p>A push setting if available</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="name"><span class="">name</span></dt>
+            <dd class="rounded-all"><p>display code</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="push"><span class="">push</span></dt>
+       <dd class="rounded-all">
+        <p>An email setting if available</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="name"><span class="">name</span></dt>
+            <dd class="rounded-all"><p>display code</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="target"><span class="">target</span></dt>
+    <dd class="rounded-all">
+    <p>kind specific properties which may be used to navigate back to the source of the notification</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="album_id"><span class="">album_id</span></dt>
+       <dd class="rounded-all">
+        <p>If needed, a numeric photo album ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="comment_id"><span class="">comment_id</span></dt>
+       <dd class="rounded-all">
+        <p>If needed, the numeric ID of the comment which relates to this notification</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="comment_parent_id"><span class="">comment_parent_id</span></dt>
+       <dd class="rounded-all">
+        <p>If needed, the numeric ID of the top-level comment which relates to this notification</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="event_id"><span class="">event_id</span></dt>
+       <dd class="rounded-all">
+        <p>If needed, the alphanumeric ID of the event which relates to this notification</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="group_id"><span class="">group_id</span></dt>
+       <dd class="rounded-all">
+        <p>If needed, the numeric ID of the group which relates to this notification</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="group_urlname"><span class="">group_urlname</span></dt>
+       <dd class="rounded-all">
+        <p>If needed, the alpha numeric urlname of the group which relates to this notification</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="member_id"><span class="">member_id</span></dt>
+       <dd class="rounded-all">
+        <p>If needed, the numeric ID of the member involved in the notification</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="pending"><span class="">pending</span></dt>
+       <dd class="rounded-all">
+        <p>If needed, a boolean valid indicating the membership status of member_id in the context of a group</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo_id"><span class="">photo_id</span></dt>
+       <dd class="rounded-all">
+        <p>If needed, a numeric photo ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="type"><span class="">type</span></dt>
+       <dd class="rounded-all">
+        <p>Identifier indicating the view that should be navigated to.</p>
+<p>These may be one of: group, group_member_list, group_member_profile, event, topic_picker, calendar, group_list, event_photos, event_comments, friends_calendar, friends_groups, start_group, external_url, event_location, deeplink_url</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="text"><span class="">text</span></dt>
+    <dd class="rounded-all">
+    <p>Notification content as text</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+    <dd class="rounded-all">
+    <p>The last time the notification was modified, indicated as the time in milliseconds since the epoch</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

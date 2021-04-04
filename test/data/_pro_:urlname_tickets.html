@@ -1,0 +1,170 @@
+
+        
+
+<div id="">
+  <h2>Search Issued Pro Tickets</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /pro/:urlname/tickets
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Redeemed chapter, redeemed member, status, and timestamp for tickets belonging to Pro organization.</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/pro/:urlname/tickets">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>All parameters are optional.</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="chapter_name"><span class="">chapter_name</span></dt>
+    <dd class="rounded-all"><p>String: partial or full name of the redeemed chapter</p></dd>
+  
+    <dt class="align-right bold" title="chapters"><span class="">chapters</span></dt>
+    <dd class="rounded-all"><p>Comma delimited positive integers: ids of redeemed chapters</p></dd>
+  
+    <dt class="align-right bold" title="country"><span class="">country</span></dt>
+    <dd class="rounded-all"><p>String: two-letter country code of the redeemed chapters</p></dd>
+  
+    <dt class="align-right bold" title="status"><span class="">status</span></dt>
+    <dd class="rounded-all"><p>Comma delimited strings: ticket status, among the following: inactive, available, claimed, redeemed</p></dd>
+  
+    <dt class="align-right bold" title="ticket_key"><span class="">ticket_key</span></dt>
+    <dd class="rounded-all"><p>String: full matching string of an issued ticket key</p></dd>
+  
+  </dl>
+  
+  <h4 id="ordering">Ordering</h4>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold"><span class="">chapter_name</span></dt>
+    <dd class="rounded-all"><p>By the name of the chapter that redeemed the ticket</p></dd>
+  
+    <dt class="align-right bold"><span class="">created</span></dt>
+    <dd class="rounded-all"><p>By the creation timestamp of ticket</p></dd>
+  
+    <dt class="align-right bold"><span class="">status</span></dt>
+    <dd class="rounded-all"><p>By the redeemed status of the ticket</p></dd>
+  
+    <dt class="align-right bold"><span class="">updated</span></dt>
+    <dd class="rounded-all"><p>By the update timestamp of ticket</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="chapter"><span class="">chapter</span></dt>
+    <dd class="rounded-all">
+    <p>Pro organization chapter that redeemed the ticket, if the ticket is redeemed</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="country"><span class="">country</span></dt>
+       <dd class="rounded-all">
+        <p>Country of the Chapter</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Id of the chapter</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of the chapter</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="urlname"><span class="">urlname</span></dt>
+       <dd class="rounded-all">
+        <p>Urlname used to identify the chapter on meetup.com</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="created"><span class="">created</span></dt>
+    <dd class="rounded-all">
+    <p>Ticket creation time</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member"><span class="">member</span></dt>
+    <dd class="rounded-all">
+    <p>Member who claimed the ticket, if the ticket is claimed</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Id of the member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of the member</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="status"><span class="">status</span></dt>
+    <dd class="rounded-all">
+    <p>The status of ticket, one of the following: inactive, available, claimed, redeemed</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="ticket_key"><span class="">ticket_key</span></dt>
+    <dd class="rounded-all">
+    <p>Ticket key</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+    <dd class="rounded-all">
+    <p>Last update time of ticket</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      
