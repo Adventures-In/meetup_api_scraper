@@ -1,0 +1,68 @@
+
+        
+
+<div id="">
+  <h2>Close Rsvps</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /:urlname/events/:event_id/rsvps/close
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">event_management</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Closes rsvps for an event</p>
+  </div>
+  
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>Valid path parameters for <strong>:urlname</strong> and <strong>:event_id</strong> are required.</p>
+<p>Only event hosts and members of the lead team may close rsvps.</p>
+<p>OAuth authenticated applications should request the <a href="/meetup_api/auth/#event_management_scope">event_management</a> OAuth scope.</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>A successful request will return a 204 response.</p>
+  <dl>
+  
+  </dl>
+  
+  <h4 id="errors" class="rounded-all">Errors</h4>
+  <dl>
+  
+    <dt class="align-right bold"><span class="">closed_error</span></dt>
+    <dd><p>If you are closing rsvps, then you cannot set an rsvp deadline</p></dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

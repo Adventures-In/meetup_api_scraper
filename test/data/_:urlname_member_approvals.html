@@ -1,0 +1,168 @@
+
+        
+
+<div id="create">
+  <h2>Membership Approval</h2>
+  <div id="createuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /:urlname/member/approvals
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Approves one or more requests for group membership</p>
+  </div>
+  
+  <h3 id="createparams" class="rounded-all">Request Parameters</h3>
+  <div class="createparam-notes"><p>The :urlname path element may be any valid group urlname or domain name. If you need access to your group's welcome message, you can access it from the <a href="/meetup_api/docs/:urlname/#getresponse">/:urlname</a> groups method, providing a value of <code>welcome_message</code> for the fields parameter. To get a list of pending members, as an organizer, you can request the status <code>pending</code> in the <a href="/meetup_api/docs/:urlname/members/#listparams">/:urlname/members</a> method.</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="member"><span class="">member</span></dt>
+    <dd class="rounded-all"><p>Comma-delimited numeric pending member IDs. The maximum allowed is 200</p></dd>
+  
+    <dt class="align-right bold" title="send_copy"><span class="">send_copy</span></dt>
+    <dd class="rounded-all"><p>Optional boolean value indicating whether or not the org should receive a copy of the message sent to the approved members</p></dd>
+  
+    <dt class="align-right bold" title="welcome_message"><span class="">welcome_message</span></dt>
+    <dd class="rounded-all"><p>Optional message to send to the members being approved. If not provided, the groups default welcome message will be sent. Max message size is 2000</p></dd>
+  
+  </dl>
+  
+  <h3 id="createresponse" class="rounded-all">Response</h3>
+  <p>A successful request will result in a simple JSON-encoded message with an HTTP 200 response.</p>
+  <dl>
+  
+  </dl>
+  
+  <h4 id="createerrors" class="rounded-all">Errors</h4>
+  <dl>
+  
+    <dt class="align-right bold"><span class="">member_limit_error</span></dt>
+    <dd><p>returned when an attempt to approve members goes over the maximum number of active members for the group</p></dd>
+  
+    <dt class="align-right bold"><span class="">permission_error</span></dt>
+    <dd><p>returned when a non-organizer attempts to approve members</p></dd>
+  
+  </dl>
+  
+  
+  <h3 id="createexamples" class="rounded-all">Examples</h3>
+  <p>Approve requests for membership in your group</p>
+<pre><code>curl -H "Authorization: Bearer $OAUTH2_ACCESS_TOKEN" 'https://api.meetup.com/your-group/member/approvals' -d 'member=123,456'
+{"message":"ok"}
+</code></pre>
+<p>Members 123 and 456 will get an email notification</p>
+  
+</div>
+
+<div id="delete">
+  <h2>Membership Decline</h2>
+  <div id="deleteuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">DELETE</strong> /:urlname/member/approvals
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Declines one or more requests for group membership</p>
+  </div>
+  
+  <h3 id="deleteparams" class="rounded-all">Request Parameters</h3>
+  <div class="deleteparam-notes"><p>The :urlname path element may be any valid group urlname or domain name. To get a list of pending members, as an organizer, you can request the status <code>pending</code> in the <a href="/meetup_api/docs/:urlname/members/#listparams">/:urlname/members</a> method.</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="anon"><span class="">anon</span></dt>
+    <dd class="rounded-all"><p>Optional Boolean value indicating whether the declining member's email address should be hidden in the resulting response. Default is true.</p></dd>
+  
+    <dt class="align-right bold" title="ban"><span class="">ban</span></dt>
+    <dd class="rounded-all"><p>Optional Boolean value indicating whether or not to ban the member in the future. Default is false</p></dd>
+  
+    <dt class="align-right bold" title="explanation"><span class="">explanation</span></dt>
+    <dd class="rounded-all"><p>Optional explanation to send to the members being declined. Max message size is 2000</p></dd>
+  
+    <dt class="align-right bold" title="member"><span class="">member</span></dt>
+    <dd class="rounded-all"><p>Comma-delimited numeric pending member IDs. The maximum allowed is 200</p></dd>
+  
+    <dt class="align-right bold" title="send_copy"><span class="">send_copy</span></dt>
+    <dd class="rounded-all"><p>Optional Boolean value indicating whether or not to send a copy to the member issuing the decline. Default is false</p></dd>
+  
+  </dl>
+  
+  <h3 id="deleteresponse" class="rounded-all">Response</h3>
+  <p>A successful request will result in a simple JSON-encoded message with an HTTP 200 response</p>
+  <dl>
+  
+  </dl>
+  
+  <h4 id="deleteerrors" class="rounded-all">Errors</h4>
+  <dl>
+  
+    <dt class="align-right bold"><span class="">permission_error</span></dt>
+    <dd><p>returned when a non-organizer attempts to decline members</p></dd>
+  
+  </dl>
+  
+  
+  <h3 id="deleteexamples" class="rounded-all">Examples</h3>
+  <p>Decline requests for membership in your group</p>
+<pre><code>curl -H "Authorization: Bearer $OAUTH2_ACCESS_TOKEN" -X DELETE 'https://api.meetup.com/your-group/member/approvals?member=123,456'
+{"message":"ok"}
+</code></pre>
+<p>Members 123 and 456 will get an email notification</p>
+  
+</div>
+
+
+      

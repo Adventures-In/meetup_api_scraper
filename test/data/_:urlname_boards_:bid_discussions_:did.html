@@ -1,0 +1,163 @@
+
+        
+
+<div id="">
+  <h2>Discussion Posts</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /:urlname/boards/:bid/discussions/:did
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Listing Group discussion posts</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/:urlname/boards/:bid/discussions/:did">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>The :urlname path element may be any valid group urlname or domain name. The :bid path element maybe any valid board ID for this group. The :did may be any valid discussion ID for this board</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="body"><span class="">body</span></dt>
+    <dd class="rounded-all">
+    <p>content of the post</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="created"><span class="">created</span></dt>
+    <dd class="rounded-all">
+    <p>Time post was created in milliseconds since the epoch</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="discussion"><span class="">discussion</span></dt>
+    <dd class="rounded-all">
+    <p>The discussion this was posted in</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric discussion ID</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Numeric post ID</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="in_reply_to"><span class="">in_reply_to</span></dt>
+    <dd class="rounded-all">
+    <p>ID of the post this was in reply to</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member"><span class="">member</span></dt>
+    <dd class="rounded-all">
+    <p>The member that started this discussion</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="city"><span class="">city</span></dt>
+       <dd class="rounded-all">
+        <p>City, if provided, for the member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="country"><span class="">country</span></dt>
+       <dd class="rounded-all">
+        <p>Country, if provided, for the member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Member ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Member name</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+       <dd class="rounded-all">
+        <p>Photo object for active member</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="thumb"><span class="">thumb</span></dt>
+            <dd class="rounded-all"><p>Thumbnail photo url</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="state"><span class="">state</span></dt>
+       <dd class="rounded-all">
+        <p>State if in the US</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="subject"><span class="">subject</span></dt>
+    <dd class="rounded-all">
+    <p>subject of the post</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+    <dd class="rounded-all">
+    <p>Time post was updated in milliseconds since the epoch</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

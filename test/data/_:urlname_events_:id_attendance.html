@@ -1,0 +1,480 @@
+
+        
+
+<div id="list">
+  <h2>Attendance</h2>
+  <div id="listuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /:urlname/events/:id/attendance
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Lists attendance records for Meetup events. Getting the list of attendance records for private groups is limited only to members of that group. The endpoint returns all members that have rsvped 'yes' or 'no' and members that were marked as either 'attended', 'noshow', or 'absent'</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/:urlname/events/:id/attendance">Try it in the console</a></p>
+  <h3 id="listparams" class="rounded-all">Request Parameters</h3>
+  <div class="listparam-notes"><p>The :urlname path element may be any valid group urlname or domain name. The :id path element must be a valid alphanumeric Meetup event identifier</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="desc"><span class="">desc</span></dt>
+    <dd class="rounded-all"><p>Boolean value controlling sort order of results. Defaults to false</p></dd>
+  
+    <dt class="align-right bold" title="order"><span class="">order</span></dt>
+    <dd class="rounded-all"><p>The sort order of returned attendees.
+ The attendees are sorted in ascending order, use 'desc' to sort in descending order instead.
+ Valid values include "name", "social", or "time".
+ 'name' sorts alphabetically using the member's name. Attendees with no name will be moved to the bottom of the list, regardless of the value of 'desc'.
+ 'time' sorts using either the rsvp response time or the time the attendance was taken. If an attendee has both an rsvp status and attendance status we always use the time the attendance status was changed in the sort over the rsvp response time. Attendees with no rsvp response time or attendance time will be moved to the bottom of the list regardless of the 'desc' value.
+ 'social' sorts the attendees by the amount of friends and groups that they have in common with the authenticated member. If there is no authenticated member we default to 'name'.
+ Default sort is: name.</p></dd>
+  
+  </dl>
+  
+  <h3 id="listresponse" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="guests"><span class="">guests</span></dt>
+    <dd class="rounded-all">
+    <p>Number of guests when the attendance was taken on the member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Unique identifier for the attendance</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member"><span class="">member</span></dt>
+    <dd class="rounded-all">
+    <p>Member who RSVP'd</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="bio"><span class="">bio</span></dt>
+       <dd class="rounded-all">
+        <p>Intro of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="event_context"><span class="">event_context</span></dt>
+       <dd class="rounded-all">
+        <p>Member's context within the event. Only returned in the context of an event</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="host"><span class="">host</span></dt>
+            <dd class="rounded-all"><p>Boolean indicator for whether this member is a host for the event</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric member ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+       <dd class="rounded-all">
+        <p>Member photo, if available.
+Members who registered via Facebook may not have highres photos</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="role"><span class="">role</span></dt>
+       <dd class="rounded-all">
+        <p>The leadership role of this member within the group, if any.
+Value may be one of assistant_organizer, coorganizer, event_organizer, organizer</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="title"><span class="">title</span></dt>
+       <dd class="rounded-all">
+        <p>Organizer defined title of member. May be absent if not defined</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="pay_status"><span class="">pay_status</span></dt>
+    <dd class="rounded-all">
+    <p>The member's pay status for ticketed events returned with "pay_status"
+is requested with the "fields" parameter.</p>
+<p>Visible only to the member and the lead team.
+May be one of "refunded", "partial_refund", "refund_pending", "pending", "echeck_pending", "paid", "none", or "exempt"</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="rsvp"><span class="">rsvp</span></dt>
+    <dd class="rounded-all">
+    <p>RSVP, if member originally RSVP'd</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="answers"><span class="">answers</span></dt>
+       <dd class="rounded-all">
+        <p>Answers to event survey questions.
+Visible only to the posting member, hosts and the lead team</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="answer"><span class="">answer</span></dt>
+            <dd class="rounded-all"><p>Answer text for question</p></dd>
+            
+            <dt class="align-right bold" title="question"><span class="">question</span></dt>
+            <dd class="rounded-all"><p>Question text</p></dd>
+            
+            <dt class="align-right bold" title="question_id"><span class="">question_id</span></dt>
+            <dd class="rounded-all"><p>Unique number identifier for question</p></dd>
+            
+            <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+            <dd class="rounded-all"><p>The last time this answer was updated</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="guests"><span class="">guests</span></dt>
+       <dd class="rounded-all">
+        <p>Number of guests when the member rsvped</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Unique identifier for the rsvp</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="response"><span class="">response</span></dt>
+       <dd class="rounded-all">
+        <p>Member's original RSVP response. May be one of: 'yes', 'no', 'waitlist'. If there is no corresponding attendance status for the memer, only 'yes' and 'no' will be returned.</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+       <dd class="rounded-all">
+        <p>Last modified time of the attendance status, in milliseconds since the epoch</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="status"><span class="">status</span></dt>
+    <dd class="rounded-all">
+    <p>The member's attendance status. May be one of: 'attended', 'absent', 'noshow'</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+    <dd class="rounded-all">
+    <p>Last modified time of the attendance status, in milliseconds since the epoch</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+<div id="edit">
+  <h2>Attendance Taking</h2>
+  <div id="edituri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /:urlname/events/:id/attendance
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Takes member attendance for an event. Limited for use by administrative members.</p>
+  </div>
+  
+  <h3 id="editparams" class="rounded-all">Request Parameters</h3>
+  <div class="editparam-notes"><p>The :urlname path element may be any valid group urlname or domain name. The :id path element must be a valid alphanumeric Meetup event identifier. Highlighted fields are required.</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="guests"><span class="">guests</span></dt>
+    <dd class="rounded-all"><p>The number of guests accompanying member. Maximum of guests allowed is 99.
+If the field is empty the guest count is either populated using the rsvp guest count or the guest count from the existing attendance status for the corresponding member.
+If no guest count is found it defaults to 0.</p></dd>
+  
+    <dt class="align-right bold" title="member"><span class="param_required">member</span></dt>
+    <dd class="rounded-all"><p>MemberId of member we are taking attendance on</p></dd>
+  
+    <dt class="align-right bold" title="status"><span class="param_required">status</span></dt>
+    <dd class="rounded-all"><p>An attendance status for the provided members. Must be one of: noshow, absent, attended</p></dd>
+  
+  </dl>
+  
+  <h3 id="editresponse" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="guests"><span class="">guests</span></dt>
+    <dd class="rounded-all">
+    <p>Number of guests when the attendance was taken on the member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Unique identifier for the attendance</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member"><span class="">member</span></dt>
+    <dd class="rounded-all">
+    <p>Member who RSVP'd</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="bio"><span class="">bio</span></dt>
+       <dd class="rounded-all">
+        <p>Intro of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="event_context"><span class="">event_context</span></dt>
+       <dd class="rounded-all">
+        <p>Member's context within the event. Only returned in the context of an event</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="host"><span class="">host</span></dt>
+            <dd class="rounded-all"><p>Boolean indicator for whether this member is a host for the event</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric member ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+       <dd class="rounded-all">
+        <p>Member photo, if available.
+Members who registered via Facebook may not have highres photos</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="role"><span class="">role</span></dt>
+       <dd class="rounded-all">
+        <p>The leadership role of this member within the group, if any.
+Value may be one of assistant_organizer, coorganizer, event_organizer, organizer</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="title"><span class="">title</span></dt>
+       <dd class="rounded-all">
+        <p>Organizer defined title of member. May be absent if not defined</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="pay_status"><span class="">pay_status</span></dt>
+    <dd class="rounded-all">
+    <p>The member's pay status for ticketed events returned with "pay_status"
+is requested with the "fields" parameter.</p>
+<p>Visible only to the member and the lead team.
+May be one of "refunded", "partial_refund", "refund_pending", "pending", "echeck_pending", "paid", "none", or "exempt"</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="rsvp"><span class="">rsvp</span></dt>
+    <dd class="rounded-all">
+    <p>RSVP, if member originally RSVP'd</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="answers"><span class="">answers</span></dt>
+       <dd class="rounded-all">
+        <p>Answers to event survey questions.
+Visible only to the posting member, hosts and the lead team</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="answer"><span class="">answer</span></dt>
+            <dd class="rounded-all"><p>Answer text for question</p></dd>
+            
+            <dt class="align-right bold" title="question"><span class="">question</span></dt>
+            <dd class="rounded-all"><p>Question text</p></dd>
+            
+            <dt class="align-right bold" title="question_id"><span class="">question_id</span></dt>
+            <dd class="rounded-all"><p>Unique number identifier for question</p></dd>
+            
+            <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+            <dd class="rounded-all"><p>The last time this answer was updated</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="guests"><span class="">guests</span></dt>
+       <dd class="rounded-all">
+        <p>Number of guests when the member rsvped</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Unique identifier for the rsvp</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="response"><span class="">response</span></dt>
+       <dd class="rounded-all">
+        <p>Member's original RSVP response. May be one of: 'yes', 'no', 'waitlist'. If there is no corresponding attendance status for the memer, only 'yes' and 'no' will be returned.</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+       <dd class="rounded-all">
+        <p>Last modified time of the attendance status, in milliseconds since the epoch</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="status"><span class="">status</span></dt>
+    <dd class="rounded-all">
+    <p>The member's attendance status. May be one of: 'attended', 'absent', 'noshow'</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+    <dd class="rounded-all">
+    <p>Last modified time of the attendance status, in milliseconds since the epoch</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

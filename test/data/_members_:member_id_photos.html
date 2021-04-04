@@ -1,0 +1,132 @@
+
+        
+
+<div id="post">
+  <h2>Member Photo Upload</h2>
+  <div id="posturi" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /members/:member_id/photos
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">profile_edit</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Support for uploading new Member photos</p>
+  </div>
+  
+  <h3 id="postparams" class="rounded-all">Request Parameters</h3>
+  <div class="postparam-notes"><p>A valid path parameter value for <strong>:member_id</strong> is required. This value must match the authenticated
+member's id or "self".</p>
+<p>Since this method can change properties of your member profile, OAuth authenticated applications must
+request the <a href="/meetup_api/auth/#profile_edit_scope">profile_edit</a>
+permission scope.</p>
+<p>This method expects an HTTP POST containing a body with Content-Type of <code>multipart/form-data</code>.
+Only the <code>photo</code> parameter, which represents the photo being uploaded, is required.</p>
+<p>Uploaded photos are fed into a separate photo staging process and may not be
+immediately available for display. To receive responses for photos that are immediately
+displayable, send the <code>await</code> request parameter with a value of <code>true</code>.</p>
+<p>Authentication credentials must be omitted from the request body and be sent via
+HTTP Authorization header or as query string parameters</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="await"><span class="">await</span></dt>
+    <dd class="rounded-all"><p>Optional boolean parameter that, when set to true, will defer a request's a response until confirmation that photo is immediately displayable is received.</p></dd>
+  
+    <dt class="align-right bold" title="main"><span class="">main</span></dt>
+    <dd class="rounded-all"><p>Optional boolean parameter that, when set to true, will cause the member's main profile photo to be set to the uploaded photo</p></dd>
+  
+    <dt class="align-right bold" title="photo"><span class="param_required">photo</span></dt>
+    <dd class="rounded-all"><p>Photo upload data, encoded as a multipart/form-data file. The maximum file size allowed is 10MB</p></dd>
+  
+    <dt class="align-right bold" title="sync_photo"><span class="">sync_photo</span></dt>
+    <dd class="rounded-all"><p>Optional boolean parameter that, when set to true, will sync all of the group profile photos for the member with the provided photo</p></dd>
+  
+  </dl>
+  
+  <h3 id="postresponse" class="rounded-all">Response</h3>
+  <p>A successful request will respond with a Photo object
+If a successful photo upload is immediately accessible, a 201 Created status is returned, otherwise a 202 Accepted status is returned</p>
+  <dl>
+   
+    <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+    <dd class="rounded-all">
+    <p>A base url that can be use to construct a photo url from its components</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+    <dd class="rounded-all">
+    <p>Link for full sized photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Numeric photo ID</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+    <dd class="rounded-all">
+    <p>Link for standard sized photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+    <dd class="rounded-all">
+    <p>Link for thumbnail sized photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="type"><span class="">type</span></dt>
+    <dd class="rounded-all">
+    <p>Type of photo. One of "event" or "member"</p>
+    
+    </dd>
+  
+  </dl>
+  
+  <h4 id="posterrors" class="rounded-all">Errors</h4>
+  <dl>
+  
+    <dt class="align-right bold"><span class="">photo_error</span></dt>
+    <dd><p>Returned photo was either omitted from the request or was invalid</p></dd>
+  
+    <dt class="align-right bold"><span class="">upload_error</span></dt>
+    <dd><p>The process of uploading the photo failed</p></dd>
+  
+    <dt class="align-right bold"><span class="">upload_timeout_error</span></dt>
+    <dd><p>An awaited response timed out</p></dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

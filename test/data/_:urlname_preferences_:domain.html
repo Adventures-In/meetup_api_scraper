@@ -1,0 +1,142 @@
+
+        
+
+<div id="">
+  <h2>Get preference and permission data</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /:urlname/preferences/:domain
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Returns preference and permission data for the specified product domain</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/:urlname/preferences/:domain">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>:urlname and :domain path parameters are required. :domain specifies the preference domain and must be one of: group_discussions.</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>400 BadRequest is returned if requesting data for an unsupported preference domain or if unauthenticated.
+500 InternalServerError is returned if an API error occurs.
+Otherwise, 200 Ok is returned.</p>
+  <dl>
+   
+    <dt class="align-right bold" title="preferences"><span class="">preferences</span></dt>
+    <dd class="rounded-all">
+    <p>Chapter preferences for the specified product domain</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="self"><span class="">self</span></dt>
+    <dd class="rounded-all">
+    <p>Permissions for the authenticated member</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="permissions"><span class="">permissions</span></dt>
+       <dd class="rounded-all">
+        <p>Member permissions that pertain to the specified product domain</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+<div id="">
+  <h2>Update a preference</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">PATCH</strong> /:urlname/preferences/:domain
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Updates the specified preference for the specified product domain</p>
+  </div>
+  
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>:urlname and :domain path parameters are required.
+:domain specifies the preference domain and must be one of: group_discussions.
+The name of the preference to update is a required query string parameter.
+For the group_discussions domain, the only supported preference name is any_member_can_post</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>400 BadRequest is returned if attempting to update a preference for an unsupported domain,
+attempting to update an unsupported preference for a given domain, or if unauthenticated.
+401 Unauthorized is returned if the authenticated member does not have permission to update the specified preference.
+500 InternalServerError is returned if an API error occurs.
+Otherwise, 204 NoContent is returned.</p>
+  <dl>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

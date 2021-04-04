@@ -1,0 +1,443 @@
+
+        
+
+<div id="">
+  <h2>Search Pro Groups</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /pro/:urlname/groups
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Name and statistics range search for the meetup groups belonging to Pro organization.</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/pro/:urlname/groups">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>All parameters are optional. <code>order</code> and <code>desc</code> can take multiple items in a comma-delimited list.</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="active_within_days"><span class="">active_within_days</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: including only those groups that had event in the last specified days</p></dd>
+  
+    <dt class="align-right bold" title="average_age_max"><span class="">average_age_max</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Maximum range of the average age of the members</p></dd>
+  
+    <dt class="align-right bold" title="average_age_min"><span class="">average_age_min</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Minumum range of the average age of the members</p></dd>
+  
+    <dt class="align-right bold" title="category"><span class="">category</span></dt>
+    <dd class="rounded-all"><p>List of Integers: the ids of the category of the group</p></dd>
+  
+    <dt class="align-right bold" title="chapter_urlnames"><span class="">chapter_urlnames</span></dt>
+    <dd class="rounded-all"><p>List of String: the urlnames of chapters that may belong to the organization</p></dd>
+  
+    <dt class="align-right bold" title="chapters"><span class="">chapters</span></dt>
+    <dd class="rounded-all"><p>List of Integer: the chapter ids that may belong to the organization</p></dd>
+  
+    <dt class="align-right bold" title="country"><span class="">country</span></dt>
+    <dd class="rounded-all"><p>String: Country</p></dd>
+  
+    <dt class="align-right bold" title="desc"><span class="">desc</span></dt>
+    <dd class="rounded-all"><p>List of Boolean: whether to sort ascending or decending on each attributes in <code>order</code></p></dd>
+  
+    <dt class="align-right bold" title="excluded_chapters"><span class="">excluded_chapters</span></dt>
+    <dd class="rounded-all"><p>List of Integer: the chapters to exclude from the result</p></dd>
+  
+    <dt class="align-right bold" title="founded_date_max"><span class="">founded_date_max</span></dt>
+    <dd class="rounded-all"><p>Milliseconds since epoch: Maximum range of the founded dates of the groups</p></dd>
+  
+    <dt class="align-right bold" title="founded_date_min"><span class="">founded_date_min</span></dt>
+    <dd class="rounded-all"><p>Milliseconds since epoch: Minumum range of the founded dates of the groups</p></dd>
+  
+    <dt class="align-right bold" title="inactive_within_days"><span class="">inactive_within_days</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: including only those groups that did not have event in the last specified days</p></dd>
+  
+    <dt class="align-right bold" title="last_event_max"><span class="">last_event_max</span></dt>
+    <dd class="rounded-all"><p>Milliseconds since epoch: Maximum range of the date that the last meetup happened</p></dd>
+  
+    <dt class="align-right bold" title="last_event_min"><span class="">last_event_min</span></dt>
+    <dd class="rounded-all"><p>Milliseconds since epoch: Minumum range of the date that the last meetup happened</p></dd>
+  
+    <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+    <dd class="rounded-all"><p>Float: Latitude</p></dd>
+  
+    <dt class="align-right bold" title="location"><span class="">location</span></dt>
+    <dd class="rounded-all"><p>String: Raw location</p></dd>
+  
+    <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+    <dd class="rounded-all"><p>Float: Longitude</p></dd>
+  
+    <dt class="align-right bold" title="member_count_max"><span class="">member_count_max</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Maximum range of the number of members</p></dd>
+  
+    <dt class="align-right bold" title="member_count_min"><span class="">member_count_min</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Minimum range of the number of members</p></dd>
+  
+    <dt class="align-right bold" title="name"><span class="">name</span></dt>
+    <dd class="rounded-all"><p>String: Name of the group looking for</p></dd>
+  
+    <dt class="align-right bold" title="next_event_max"><span class="">next_event_max</span></dt>
+    <dd class="rounded-all"><p>Milliseconds since epoch: Maximum range of the date that the next meetup is scheduled</p></dd>
+  
+    <dt class="align-right bold" title="next_event_min"><span class="">next_event_min</span></dt>
+    <dd class="rounded-all"><p>Milliseconds since epoch: Minumum range of the date that the next meetup is scheduled</p></dd>
+  
+    <dt class="align-right bold" title="offset"><span class="">offset</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: the page offset</p></dd>
+  
+    <dt class="align-right bold" title="order"><span class="">order</span></dt>
+    <dd class="rounded-all"><p>List of String: attributes to sort on</p></dd>
+  
+    <dt class="align-right bold" title="page"><span class="">page</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: the size of page window</p></dd>
+  
+    <dt class="align-right bold" title="past_events_max"><span class="">past_events_max</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Maximum range of the number of the past events held</p></dd>
+  
+    <dt class="align-right bold" title="past_events_min"><span class="">past_events_min</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Minumum range of the number of the past events held</p></dd>
+  
+    <dt class="align-right bold" title="past_rsvps_max"><span class="">past_rsvps_max</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Maximum range of the total number of past RSVPs</p></dd>
+  
+    <dt class="align-right bold" title="past_rsvps_min"><span class="">past_rsvps_min</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Minumum range of the total number of past RSVPs</p></dd>
+  
+    <dt class="align-right bold" title="pro_join_date_max"><span class="">pro_join_date_max</span></dt>
+    <dd class="rounded-all"><p>Milliseconds since epoch: Maximum range of the dates the groups joined Pro organization</p></dd>
+  
+    <dt class="align-right bold" title="pro_join_date_min"><span class="">pro_join_date_min</span></dt>
+    <dd class="rounded-all"><p>Milliseconds since epoch: Minumum range of the dates the groups joined Pro organization</p></dd>
+  
+    <dt class="align-right bold" title="query"><span class="">query</span></dt>
+    <dd class="rounded-all"><p>String: raw query to search from group name, description, leadership member name, or city</p></dd>
+  
+    <dt class="align-right bold" title="radius"><span class="">radius</span></dt>
+    <dd class="rounded-all"><p>String: <code>global</code>, <code>smart</code>, or search radius in Float</p></dd>
+  
+    <dt class="align-right bold" title="repeat_rsvpers_max"><span class="">repeat_rsvpers_max</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Maximum range of the average number of repeat rsvpers</p></dd>
+  
+    <dt class="align-right bold" title="repeat_rsvpers_min"><span class="">repeat_rsvpers_min</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Minumum range of the average number of repeat rsvpers</p></dd>
+  
+    <dt class="align-right bold" title="rsvps_per_event_max"><span class="">rsvps_per_event_max</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Maximum range of the average number of RSVPs per event</p></dd>
+  
+    <dt class="align-right bold" title="rsvps_per_event_min"><span class="">rsvps_per_event_min</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Minumum range of the average number of RSVPs per event</p></dd>
+  
+    <dt class="align-right bold" title="topics"><span class="">topics</span></dt>
+    <dd class="rounded-all"><p>List of Integers: the ids of topic of the group</p></dd>
+  
+    <dt class="align-right bold" title="upcoming_events_max"><span class="">upcoming_events_max</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Maximum range of the number of the upcoming events</p></dd>
+  
+    <dt class="align-right bold" title="upcoming_events_min"><span class="">upcoming_events_min</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Minumum range of the number of the upcoming events</p></dd>
+  
+    <dt class="align-right bold" title="zip"><span class="">zip</span></dt>
+    <dd class="rounded-all"><p>String: Zip code</p></dd>
+  
+  </dl>
+  
+  <h4 id="ordering">Ordering</h4>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold"><span class="">average_age</span></dt>
+    <dd class="rounded-all"><p>By the average age of members</p></dd>
+  
+    <dt class="align-right bold"><span class="">founded_date</span></dt>
+    <dd class="rounded-all"><p>By the founded date of the group</p></dd>
+  
+    <dt class="align-right bold"><span class="">gender_female</span></dt>
+    <dd class="rounded-all"><p>By the proportion of people who identify themselves as female</p></dd>
+  
+    <dt class="align-right bold"><span class="">gender_male</span></dt>
+    <dd class="rounded-all"><p>By the proportion of people who identify themselves as male</p></dd>
+  
+    <dt class="align-right bold"><span class="">gender_other</span></dt>
+    <dd class="rounded-all"><p>By the proportion of people who identify themselves as gender other than female or male</p></dd>
+  
+    <dt class="align-right bold"><span class="">gender_unknown</span></dt>
+    <dd class="rounded-all"><p>By the proportion of people whose gender info is unknown</p></dd>
+  
+    <dt class="align-right bold"><span class="">last_event</span></dt>
+    <dd class="rounded-all"><p>By the date of the last event happened</p></dd>
+  
+    <dt class="align-right bold"><span class="">member_count</span></dt>
+    <dd class="rounded-all"><p>By the number of members</p></dd>
+  
+    <dt class="align-right bold"><span class="">name</span></dt>
+    <dd class="rounded-all"><p>By the name of the groups</p></dd>
+  
+    <dt class="align-right bold"><span class="">next_event</span></dt>
+    <dd class="rounded-all"><p>By the date of the next event scheduled</p></dd>
+  
+    <dt class="align-right bold"><span class="">past_events</span></dt>
+    <dd class="rounded-all"><p>By the number of past meetups held</p></dd>
+  
+    <dt class="align-right bold"><span class="">past_rsvps</span></dt>
+    <dd class="rounded-all"><p>By the total number of past RSVPs</p></dd>
+  
+    <dt class="align-right bold"><span class="">pro_join_date</span></dt>
+    <dd class="rounded-all"><p>By the date the group joined the Pro org</p></dd>
+  
+    <dt class="align-right bold"><span class="">repeat_rsvpers</span></dt>
+    <dd class="rounded-all"><p>By the number of members RSVPing subsequent events</p></dd>
+  
+    <dt class="align-right bold"><span class="">rsvps_per_event</span></dt>
+    <dd class="rounded-all"><p>By the average number of RSVPs per event</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="average_age"><span class="">average_age</span></dt>
+    <dd class="rounded-all">
+    <p>Average age of the group members</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="category"><span class="">category</span></dt>
+    <dd class="rounded-all">
+    <p>Categories that the group belongs to</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Id of the category</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of the category</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="shortname"><span class="">shortname</span></dt>
+       <dd class="rounded-all">
+        <p>Abbreviated name of the category</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="city"><span class="">city</span></dt>
+    <dd class="rounded-all">
+    <p>City of the group</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="country"><span class="">country</span></dt>
+    <dd class="rounded-all">
+    <p>Country of the group</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="description"><span class="">description</span></dt>
+    <dd class="rounded-all">
+    <p>Description of the group</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="founded_date"><span class="">founded_date</span></dt>
+    <dd class="rounded-all">
+    <p>Date when the group was founded</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="gender_female"><span class="">gender_female</span></dt>
+    <dd class="rounded-all">
+    <p>Proportion of members who identify as female</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="gender_male"><span class="">gender_male</span></dt>
+    <dd class="rounded-all">
+    <p>Proportion of members who identify as male</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="gender_other"><span class="">gender_other</span></dt>
+    <dd class="rounded-all">
+    <p>Proportion of members who identify as gender other than male or female</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="gender_unknown"><span class="">gender_unknown</span></dt>
+    <dd class="rounded-all">
+    <p>Proportion of members whose gender is unknown</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Id of the group</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="last_event"><span class="">last_event</span></dt>
+    <dd class="rounded-all">
+    <p>Date of the last meetup event, not present if the group never had a meetup event</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+    <dd class="rounded-all">
+    <p>Latitude</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+    <dd class="rounded-all">
+    <p>Longitude</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member_count"><span class="">member_count</span></dt>
+    <dd class="rounded-all">
+    <p>Number of the group members</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="name"><span class="">name</span></dt>
+    <dd class="rounded-all">
+    <p>Name of the group</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="next_event"><span class="">next_event</span></dt>
+    <dd class="rounded-all">
+    <p>Date of the next meetup event, not present if the group has no event scheduled</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="past_events"><span class="">past_events</span></dt>
+    <dd class="rounded-all">
+    <p>Number of the past meetup events</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="past_rsvps"><span class="">past_rsvps</span></dt>
+    <dd class="rounded-all">
+    <p>Number of total RSVPs in the past</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="pro_join_date"><span class="">pro_join_date</span></dt>
+    <dd class="rounded-all">
+    <p>Date when the group joined the Pro organization</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="repeat_rsvpers"><span class="">repeat_rsvpers</span></dt>
+    <dd class="rounded-all">
+    <p>Number of members who RSVPed to a past event and RSVPs to a new event</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="rsvps_per_event"><span class="">rsvps_per_event</span></dt>
+    <dd class="rounded-all">
+    <p>Average number of RSVPs per event</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="state"><span class="">state</span></dt>
+    <dd class="rounded-all">
+    <p>State of the group, if in US or Canada</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="status"><span class="">status</span></dt>
+    <dd class="rounded-all">
+    <p>Status of the group, one of Active | Delisted | Inactive</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="topics"><span class="">topics</span></dt>
+    <dd class="rounded-all">
+    <p>Topics that are assigned to the group</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Id of the topic</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="lang"><span class="">lang</span></dt>
+       <dd class="rounded-all">
+        <p>Locale of the topic</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of the topic</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="urlkey"><span class="">urlkey</span></dt>
+       <dd class="rounded-all">
+        <p>Urlkey used to identify the topic on meetup.com</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="upcoming_events"><span class="">upcoming_events</span></dt>
+    <dd class="rounded-all">
+    <p>Number of the upcoming meetup events</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="urlname"><span class="">urlname</span></dt>
+    <dd class="rounded-all">
+    <p>Urlname used to identify the group on meetup.com</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

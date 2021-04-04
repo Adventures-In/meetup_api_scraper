@@ -1,0 +1,145 @@
+
+        
+
+<div id="">
+  <h2>Discussion Boards</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /:urlname/boards
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Listings of Group discussion boards</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/:urlname/boards">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>The :urlname path element may be any valid group urlname or domain name</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="created"><span class="">created</span></dt>
+    <dd class="rounded-all">
+    <p>Time board was created in milliseconds since the epoch</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="discussion_count"><span class="">discussion_count</span></dt>
+    <dd class="rounded-all">
+    <p>Number of discussions on this board</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="group"><span class="">group</span></dt>
+    <dd class="rounded-all">
+    <p>The group associated with this board</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric ID of group</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Numeric ID of discussion board</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="latest_reply"><span class="">latest_reply</span></dt>
+    <dd class="rounded-all">
+    <p>The latest reply on this board</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="created"><span class="">created</span></dt>
+       <dd class="rounded-all">
+        <p>Time reply was posted in milliseconds since the epoch</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="member"><span class="">member</span></dt>
+       <dd class="rounded-all">
+        <p>The posting member</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="name"><span class="">name</span></dt>
+            <dd class="rounded-all"><p>Member name</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="name"><span class="">name</span></dt>
+    <dd class="rounded-all">
+    <p>Discussion board name</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="post_count"><span class="">post_count</span></dt>
+    <dd class="rounded-all">
+    <p>Number of posts in discussions on this board</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+    <dd class="rounded-all">
+    <p>Time board was updated in milliseconds since the epoch</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+  <h3 id="examples" class="rounded-all">Examples</h3>
+  <p>Get a list of the current <a href="http://www.meetup.com/dashing-whippets/messages/boards/">Dashing Whippet's boards</a></p>
+<pre><code>curl 'https://api.meetup.com/dashing-whippets/boards?key=API_KEY'
+</code></pre>
+<p><a href="/meetup_api/console/?path=/:urlname/boards&amp;:urlname=dashing-whippets">Try it in the console</a></p>
+  
+</div>
+
+
+      

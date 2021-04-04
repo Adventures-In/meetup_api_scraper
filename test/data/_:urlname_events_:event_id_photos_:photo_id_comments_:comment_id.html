@@ -1,0 +1,66 @@
+
+        
+
+<div id="delete">
+  <h2>Photo Comment Delete</h2>
+  <div id="deleteuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">DELETE</strong> /:urlname/events/:event_id/photos/:photo_id/comments/:comment_id
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">group_content_edit</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Deletes photo comments</p>
+  </div>
+  
+  <h3 id="deleteparams" class="rounded-all">Request Parameters</h3>
+  <div class="deleteparam-notes"><p>A URI containing a valid group <strong>urlname</strong>,
+<strong>event_id</strong>, <strong>photo_id</strong>, and <strong>comment_id</strong>
+is required.</p>
+<p>The authenticated member must
+be the original poster of the comment or an admin of the group</p>
+<p>In addition,
+authorized oauth applications must request the
+<a href="/meetup_api/auth/#group_content_edit_scope">group_content_edit</a> permission scope.</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="deleteresponse" class="rounded-all">Response</h3>
+  <p>A successful HTTP DELETE request will yield a 204 No Content response.
+Otherwise a 400 Bad Request response can be expected</p>
+  <dl>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

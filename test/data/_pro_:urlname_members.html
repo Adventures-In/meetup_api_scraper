@@ -1,0 +1,244 @@
+
+        
+
+<div id="">
+  <h2>Search Pro Members</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /pro/:urlname/members
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Name, location, and time based search for the members of the meetups belonging to Pro organization.</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/pro/:urlname/members">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>All parameters are optional.</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="active_within_days"><span class="">active_within_days</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: The range of date from the past until today, for the recent activity</p></dd>
+  
+    <dt class="align-right bold" title="chapters"><span class="">chapters</span></dt>
+    <dd class="rounded-all"><p>List of Integers: The chapters which the member belongs to</p></dd>
+  
+    <dt class="align-right bold" title="country"><span class="">country</span></dt>
+    <dd class="rounded-all"><p>String: Country</p></dd>
+  
+    <dt class="align-right bold" title="desc"><span class="">desc</span></dt>
+    <dd class="rounded-all"><p>Boolean: whether to sort ascending or decending</p></dd>
+  
+    <dt class="align-right bold" title="email_received"><span class="">email_received</span></dt>
+    <dd class="rounded-all"><p>Integers: The id of a previous emails that the member received</p></dd>
+  
+    <dt class="align-right bold" title="events_attended_max"><span class="">events_attended_max</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Maximum number of attended events</p></dd>
+  
+    <dt class="align-right bold" title="events_attended_min"><span class="">events_attended_min</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: Minimum number of attended events</p></dd>
+  
+    <dt class="align-right bold" title="is_organizer"><span class="">is_organizer</span></dt>
+    <dd class="rounded-all"><p>Boolean: To limit to only organizers or non-organizers</p></dd>
+  
+    <dt class="align-right bold" title="join_time_max"><span class="">join_time_max</span></dt>
+    <dd class="rounded-all"><p>Milliseconds since epoch: The latest time limit for member join</p></dd>
+  
+    <dt class="align-right bold" title="join_time_min"><span class="">join_time_min</span></dt>
+    <dd class="rounded-all"><p>Milliseconds since epoch: The oldest time limit for member join</p></dd>
+  
+    <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+    <dd class="rounded-all"><p>Float: Latitude</p></dd>
+  
+    <dt class="align-right bold" title="location"><span class="">location</span></dt>
+    <dd class="rounded-all"><p>String: Raw location</p></dd>
+  
+    <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+    <dd class="rounded-all"><p>Float: Longitude</p></dd>
+  
+    <dt class="align-right bold" title="member_name"><span class="">member_name</span></dt>
+    <dd class="rounded-all"><p>String: Name of the member</p></dd>
+  
+    <dt class="align-right bold" title="offset"><span class="">offset</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: the page offset</p></dd>
+  
+    <dt class="align-right bold" title="order"><span class="">order</span></dt>
+    <dd class="rounded-all"><p>String: attribute to sort on</p></dd>
+  
+    <dt class="align-right bold" title="page"><span class="">page</span></dt>
+    <dd class="rounded-all"><p>Positive Integer: the size of page window</p></dd>
+  
+    <dt class="align-right bold" title="query"><span class="">query</span></dt>
+    <dd class="rounded-all"><p>String: raw query string to search from member name or city</p></dd>
+  
+    <dt class="align-right bold" title="radius"><span class="">radius</span></dt>
+    <dd class="rounded-all"><p>String: <code>global</code>, <code>smart</code>, or search radius in Float</p></dd>
+  
+    <dt class="align-right bold" title="zip"><span class="">zip</span></dt>
+    <dd class="rounded-all"><p>String: Zip code</p></dd>
+  
+  </dl>
+  
+  <h4 id="ordering">Ordering</h4>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold"><span class="">events_attended</span></dt>
+    <dd class="rounded-all"><p>By the number of events attended</p></dd>
+  
+    <dt class="align-right bold"><span class="">is_organizer</span></dt>
+    <dd class="rounded-all"><p>By whether the member is an organizer or not</p></dd>
+  
+    <dt class="align-right bold"><span class="">join_time</span></dt>
+    <dd class="rounded-all"><p>By the time when the member joined Meetup</p></dd>
+  
+    <dt class="align-right bold"><span class="">last_access_time</span></dt>
+    <dd class="rounded-all"><p>By the time of most recent visit</p></dd>
+  
+    <dt class="align-right bold"><span class="">member_name</span></dt>
+    <dd class="rounded-all"><p>By the member name</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="chapters"><span class="">chapters</span></dt>
+    <dd class="rounded-all">
+    <p>Pro organization groups that the member belongs to</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Id of the group</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of the group</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="urlname"><span class="">urlname</span></dt>
+       <dd class="rounded-all">
+        <p>Urlname used to identify the group on meetup.com</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="city"><span class="">city</span></dt>
+    <dd class="rounded-all">
+    <p>City of the member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="country"><span class="">country</span></dt>
+    <dd class="rounded-all">
+    <p>Country of the member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="email"><span class="">email</span></dt>
+    <dd class="rounded-all">
+    <p>Email address of the member if the member opted to share it with the organization</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="events_attended"><span class="">events_attended</span></dt>
+    <dd class="rounded-all">
+    <p>The number of attended events</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="is_organizer"><span class="">is_organizer</span></dt>
+    <dd class="rounded-all">
+    <p>Organizer status of the member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="join_time"><span class="">join_time</span></dt>
+    <dd class="rounded-all">
+    <p>The time when the member joined Meetup</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="last_access_time"><span class="">last_access_time</span></dt>
+    <dd class="rounded-all">
+    <p>The time when the last activity occured</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="lat"><span class="">lat</span></dt>
+    <dd class="rounded-all">
+    <p>Latitude</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="lon"><span class="">lon</span></dt>
+    <dd class="rounded-all">
+    <p>Longitude</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member_id"><span class="">member_id</span></dt>
+    <dd class="rounded-all">
+    <p>Id of the member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member_name"><span class="">member_name</span></dt>
+    <dd class="rounded-all">
+    <p>Name of the member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="photo_thumb_url"><span class="">photo_thumb_url</span></dt>
+    <dd class="rounded-all">
+    <p>Url of the photo thumbnail of the member</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="state"><span class="">state</span></dt>
+    <dd class="rounded-all">
+    <p>State of the member, if in US or Canada</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

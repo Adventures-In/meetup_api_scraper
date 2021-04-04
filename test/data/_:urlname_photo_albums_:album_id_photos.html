@@ -1,0 +1,931 @@
+
+        
+
+<div id="list">
+  <h2>Album Photos</h2>
+  <div id="listuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /:urlname/photo_albums/:album_id/photos
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Lists photos for a given photo album</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/:urlname/photo_albums/:album_id/photos">Try it in the console</a></p>
+  <h3 id="listparams" class="rounded-all">Request Parameters</h3>
+  <div class="listparam-notes"><p>A valid path parameter for
+<strong>:urlname</strong> and <strong>:album_id</strong> is required</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="desc"><span class="">desc</span></dt>
+    <dd class="rounded-all"><p>Controls directional order or listing. Default false</p></dd>
+  
+    <dt class="align-right bold" title="fields"><span class="">fields</span></dt>
+    <dd class="rounded-all"><p>A comma-delimited list of optional response fields.
+Currently supported values are
+"comment_count", "self" and "short_link"</p></dd>
+  
+    <dt class="align-right bold" title="page"><span class="">page</span></dt>
+    <dd class="rounded-all"><p>Number of items to return per-page of results. Defaults to 200</p></dd>
+  
+  </dl>
+  
+  <h3 id="listresponse" class="rounded-all">Response</h3>
+  <p>Returns a list of photo objects</p>
+  <dl>
+   
+    <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+    <dd class="rounded-all">
+    <p>A base url that can be use to construct a photo url from its components</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="caption"><span class="">caption</span></dt>
+    <dd class="rounded-all">
+    <p>Photo caption, if defined</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="comment_count"><span class="">comment_count</span></dt>
+    <dd class="rounded-all">
+    <p>The number of comments posted about this photo.
+Returned when 'comment_count' is present
+in the 'fields' request parameter.</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="created"><span class="">created</span></dt>
+    <dd class="rounded-all">
+    <p>Time photo was uploaded, in milliseconds since the epoch</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="group"><span class="">group</span></dt>
+    <dd class="rounded-all">
+    <p>Group the photo is associated with." +
+          "|Returned when 'group' is present " +
+          "|in the 'fields' request parameter.</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="group_photo"><span class="">group_photo</span></dt>
+       <dd class="rounded-all">
+        <p>Group photo</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric group ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="join_mode"><span class="">join_mode</span></dt>
+       <dd class="rounded-all">
+        <p>Who can join this group and how. One of "approval", "closed", or "open"</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="key_photo"><span class="">key_photo</span></dt>
+       <dd class="rounded-all">
+        <p>Group primary photo</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="localized_location"><span class="">localized_location</span></dt>
+       <dd class="rounded-all">
+        <p>City/State or City/Country of the group</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of the group</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo_gradient"><span class="">photo_gradient</span></dt>
+       <dd class="rounded-all">
+        <p>Color combination used generate group duotone</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="composite_color"><span class="">composite_color</span></dt>
+            <dd class="rounded-all"><p>Composite color in hexidecimal format</p></dd>
+            
+            <dt class="align-right bold" title="dark_color"><span class="">dark_color</span></dt>
+            <dd class="rounded-all"><p>Dark color in hexidecimal format</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Unique numeric identifier</p></dd>
+            
+            <dt class="align-right bold" title="light_color"><span class="">light_color</span></dt>
+            <dd class="rounded-all"><p>Light color in hexidecimal format</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="status"><span class="">status</span></dt>
+       <dd class="rounded-all">
+        <p>Status of the group</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="urlname"><span class="">urlname</span></dt>
+       <dd class="rounded-all">
+        <p>Urlname used to identify the group on meetup.com</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="who"><span class="">who</span></dt>
+       <dd class="rounded-all">
+        <p>What the group calls its members</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+    <dd class="rounded-all">
+    <p>Link for full sized photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Numeric photo ID</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="link"><span class="">link</span></dt>
+    <dd class="rounded-all">
+    <p>Link to photo on meetup.com</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member"><span class="">member</span></dt>
+    <dd class="rounded-all">
+    <p>Member who uploaded the photo. If member has since left the group,
+this will return a member with an id of 0</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="bio"><span class="">bio</span></dt>
+       <dd class="rounded-all">
+        <p>Intro of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="event_context"><span class="">event_context</span></dt>
+       <dd class="rounded-all">
+        <p>Member's context within the event. Only returned in the context of an event</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="host"><span class="">host</span></dt>
+            <dd class="rounded-all"><p>Boolean indicator for whether this member is a host for the event</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric member ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+       <dd class="rounded-all">
+        <p>Member photo, if available.
+Members who registered via Facebook may not have highres photos</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="role"><span class="">role</span></dt>
+       <dd class="rounded-all">
+        <p>The leadership role of this member within the group, if any.
+Value may be one of assistant_organizer, coorganizer, event_organizer, organizer</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="title"><span class="">title</span></dt>
+       <dd class="rounded-all">
+        <p>Organizer defined title of member. May be absent if not defined</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="photo_album"><span class="">photo_album</span></dt>
+    <dd class="rounded-all">
+    <p>Photo album the photo is associated with</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="event"><span class="">event</span></dt>
+       <dd class="rounded-all">
+        <p>Event photo album belongs to. This will be absent if the album
+is not associated with an event</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Alphanumeric event ID</p></dd>
+            
+            <dt class="align-right bold" title="name"><span class="">name</span></dt>
+            <dd class="rounded-all"><p>Name of event</p></dd>
+            
+            <dt class="align-right bold" title="no_rsvp_count"><span class="">no_rsvp_count</span></dt>
+            <dd class="rounded-all"><p>Number of no RSVPs, included if the rsvp_counts field is set</p></dd>
+            
+            <dt class="align-right bold" title="time"><span class="">time</span></dt>
+            <dd class="rounded-all"><p>UTC start time of the event, in milliseconds since the epoch</p></dd>
+            
+            <dt class="align-right bold" title="utc_offset"><span class="">utc_offset</span></dt>
+            <dd class="rounded-all"><p>The local offset from UTC time, in milliseconds</p></dd>
+            
+            <dt class="align-right bold" title="waitlist_count"><span class="">waitlist_count</span></dt>
+            <dd class="rounded-all"><p>Number of waitlisted RSVPs, included if the rsvp_counts field is set</p></dd>
+            
+            <dt class="align-right bold" title="yes_rsvp_count"><span class="">yes_rsvp_count</span></dt>
+            <dd class="rounded-all"><p>Number of yes RSVPs</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Unique numeric identifier for photo album</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo_count"><span class="">photo_count</span></dt>
+       <dd class="rounded-all">
+        <p>Number of photos uploaded</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="title"><span class="">title</span></dt>
+       <dd class="rounded-all">
+        <p>Album title</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+    <dd class="rounded-all">
+    <p>Link for standard sized photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="self"><span class="">self</span></dt>
+    <dd class="rounded-all">
+    <p>Context for the authenticated member.
+Returned when 'self' is present
+in the 'fields' request parameter and the authenticated
+is a member of the group the photo is associated with.</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="actions"><span class="">actions</span></dt>
+       <dd class="rounded-all">
+        <p>List of actions the authenticated member may perform on this photo
+or its containing album, potentially one or more of the following</p>
+<p>"comment" if member can comment on this photo</p>
+<p>"delete" if the member can delete the photo</p>
+<p>"edit" if the member can edit the photo details</p>
+<p>"upload_photo" if the member can upload new photos</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="short_link"><span class="">short_link</span></dt>
+    <dd class="rounded-all">
+    <p>Shortened link to photo on meetup.com. Returned when 'short_link'
+is present in the 'fields' request parameter</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+    <dd class="rounded-all">
+    <p>Link for thumbnail sized photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="type"><span class="">type</span></dt>
+    <dd class="rounded-all">
+    <p>Type of photo. One of "event" or "member"</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+    <dd class="rounded-all">
+    <p>Time photo was last updated, in milliseconds since the epoch</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="utc_offset"><span class="">utc_offset</span></dt>
+    <dd class="rounded-all">
+    <p>Numeric utc offset based on the timezone of the group
+hosting the event this photo was posted in</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+<div id="upload">
+  <h2>Album Photo Upload</h2>
+  <div id="uploaduri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /:urlname/photo_albums/:album_id/photos
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Support for uploading new Album photos</p>
+  </div>
+  
+  <h3 id="uploadparams" class="rounded-all">Request Parameters</h3>
+  <div class="uploadparam-notes"><p>A valid path parameter value for
+<strong>:urlname</strong> and <strong>:album_id</strong>
+is required</p>
+<p>This method expects an HTTP POST containing a Content-Type of <code>multipart/form-data</code>.
+Only the <code>photo</code> parameter, which represents the photo being uploaded, is required.</p>
+<p>Uploaded photos are fed into a separate photo staging process and may not be
+immediately available for display. To receive responses for photos that are immediately
+displayable, send the <code>await</code> request parameter with a value of <code>true</code>.</p>
+<p>A maximum of 500 photos are allowed for a given album.</p>
+<p>Authentication credentials should be omitted from the request body and be sent via
+HTTP Authorization header or as query string parameters</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="await"><span class="">await</span></dt>
+    <dd class="rounded-all"><p>Optional boolean parameter that will defer a request's a response until confirmation that photo is immediately displayable is received.</p></dd>
+  
+    <dt class="align-right bold" title="caption"><span class="">caption</span></dt>
+    <dd class="rounded-all"><p>Caption for display. Max length 255</p></dd>
+  
+    <dt class="align-right bold" title="fields"><span class="">fields</span></dt>
+    <dd class="rounded-all"><p>A comma-delimited list of optional response fields.
+Currently supported values are "self" and "comment_count"</p></dd>
+  
+    <dt class="align-right bold" title="photo"><span class="param_required">photo</span></dt>
+    <dd class="rounded-all"><p>Photo upload data, encoded as multipart/form-data. The maximum file size allowed is 10MB</p></dd>
+  
+  </dl>
+  
+  <h3 id="uploadresponse" class="rounded-all">Response</h3>
+  <p>A successful request will respond with a Photo object
+If a successful photo upload is immediately accessible, a 201 Created status is returned, otherwise a 202 Accepted status is returned</p>
+  <dl>
+   
+    <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+    <dd class="rounded-all">
+    <p>A base url that can be use to construct a photo url from its components</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="caption"><span class="">caption</span></dt>
+    <dd class="rounded-all">
+    <p>Photo caption, if defined</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="comment_count"><span class="">comment_count</span></dt>
+    <dd class="rounded-all">
+    <p>The number of comments posted about this photo.
+Returned when 'comment_count' is present
+in the 'fields' request parameter.</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="created"><span class="">created</span></dt>
+    <dd class="rounded-all">
+    <p>Time photo was uploaded, in milliseconds since the epoch</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="group"><span class="">group</span></dt>
+    <dd class="rounded-all">
+    <p>Group the photo is associated with." +
+          "|Returned when 'group' is present " +
+          "|in the 'fields' request parameter.</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="group_photo"><span class="">group_photo</span></dt>
+       <dd class="rounded-all">
+        <p>Group photo</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric group ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="join_mode"><span class="">join_mode</span></dt>
+       <dd class="rounded-all">
+        <p>Who can join this group and how. One of "approval", "closed", or "open"</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="key_photo"><span class="">key_photo</span></dt>
+       <dd class="rounded-all">
+        <p>Group primary photo</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="localized_location"><span class="">localized_location</span></dt>
+       <dd class="rounded-all">
+        <p>City/State or City/Country of the group</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of the group</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo_gradient"><span class="">photo_gradient</span></dt>
+       <dd class="rounded-all">
+        <p>Color combination used generate group duotone</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="composite_color"><span class="">composite_color</span></dt>
+            <dd class="rounded-all"><p>Composite color in hexidecimal format</p></dd>
+            
+            <dt class="align-right bold" title="dark_color"><span class="">dark_color</span></dt>
+            <dd class="rounded-all"><p>Dark color in hexidecimal format</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Unique numeric identifier</p></dd>
+            
+            <dt class="align-right bold" title="light_color"><span class="">light_color</span></dt>
+            <dd class="rounded-all"><p>Light color in hexidecimal format</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="status"><span class="">status</span></dt>
+       <dd class="rounded-all">
+        <p>Status of the group</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="urlname"><span class="">urlname</span></dt>
+       <dd class="rounded-all">
+        <p>Urlname used to identify the group on meetup.com</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="who"><span class="">who</span></dt>
+       <dd class="rounded-all">
+        <p>What the group calls its members</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+    <dd class="rounded-all">
+    <p>Link for full sized photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Numeric photo ID</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="link"><span class="">link</span></dt>
+    <dd class="rounded-all">
+    <p>Link to photo on meetup.com</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member"><span class="">member</span></dt>
+    <dd class="rounded-all">
+    <p>Member who uploaded the photo. If member has since left the group,
+this will return a member with an id of 0</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="bio"><span class="">bio</span></dt>
+       <dd class="rounded-all">
+        <p>Intro of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="event_context"><span class="">event_context</span></dt>
+       <dd class="rounded-all">
+        <p>Member's context within the event. Only returned in the context of an event</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="host"><span class="">host</span></dt>
+            <dd class="rounded-all"><p>Boolean indicator for whether this member is a host for the event</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric member ID</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Name of member</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo"><span class="">photo</span></dt>
+       <dd class="rounded-all">
+        <p>Member photo, if available.
+Members who registered via Facebook may not have highres photos</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="base_url"><span class="">base_url</span></dt>
+            <dd class="rounded-all"><p>A base url that can be use to construct a photo url from its components</p></dd>
+            
+            <dt class="align-right bold" title="highres_link"><span class="">highres_link</span></dt>
+            <dd class="rounded-all"><p>Link for full sized photo</p></dd>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Numeric photo ID</p></dd>
+            
+            <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+            <dd class="rounded-all"><p>Link for standard sized photo</p></dd>
+            
+            <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+            <dd class="rounded-all"><p>Link for thumbnail sized photo</p></dd>
+            
+            <dt class="align-right bold" title="type"><span class="">type</span></dt>
+            <dd class="rounded-all"><p>Type of photo. One of "event" or "member"</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="role"><span class="">role</span></dt>
+       <dd class="rounded-all">
+        <p>The leadership role of this member within the group, if any.
+Value may be one of assistant_organizer, coorganizer, event_organizer, organizer</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="title"><span class="">title</span></dt>
+       <dd class="rounded-all">
+        <p>Organizer defined title of member. May be absent if not defined</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="photo_album"><span class="">photo_album</span></dt>
+    <dd class="rounded-all">
+    <p>Photo album the photo is associated with</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="event"><span class="">event</span></dt>
+       <dd class="rounded-all">
+        <p>Event photo album belongs to. This will be absent if the album
+is not associated with an event</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="id"><span class="">id</span></dt>
+            <dd class="rounded-all"><p>Alphanumeric event ID</p></dd>
+            
+            <dt class="align-right bold" title="name"><span class="">name</span></dt>
+            <dd class="rounded-all"><p>Name of event</p></dd>
+            
+            <dt class="align-right bold" title="no_rsvp_count"><span class="">no_rsvp_count</span></dt>
+            <dd class="rounded-all"><p>Number of no RSVPs, included if the rsvp_counts field is set</p></dd>
+            
+            <dt class="align-right bold" title="time"><span class="">time</span></dt>
+            <dd class="rounded-all"><p>UTC start time of the event, in milliseconds since the epoch</p></dd>
+            
+            <dt class="align-right bold" title="utc_offset"><span class="">utc_offset</span></dt>
+            <dd class="rounded-all"><p>The local offset from UTC time, in milliseconds</p></dd>
+            
+            <dt class="align-right bold" title="waitlist_count"><span class="">waitlist_count</span></dt>
+            <dd class="rounded-all"><p>Number of waitlisted RSVPs, included if the rsvp_counts field is set</p></dd>
+            
+            <dt class="align-right bold" title="yes_rsvp_count"><span class="">yes_rsvp_count</span></dt>
+            <dd class="rounded-all"><p>Number of yes RSVPs</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Unique numeric identifier for photo album</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="photo_count"><span class="">photo_count</span></dt>
+       <dd class="rounded-all">
+        <p>Number of photos uploaded</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="title"><span class="">title</span></dt>
+       <dd class="rounded-all">
+        <p>Album title</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="photo_link"><span class="">photo_link</span></dt>
+    <dd class="rounded-all">
+    <p>Link for standard sized photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="self"><span class="">self</span></dt>
+    <dd class="rounded-all">
+    <p>Context for the authenticated member.
+Returned when 'self' is present
+in the 'fields' request parameter and the authenticated
+is a member of the group the photo is associated with.</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="actions"><span class="">actions</span></dt>
+       <dd class="rounded-all">
+        <p>List of actions the authenticated member may perform on this photo
+or its containing album, potentially one or more of the following</p>
+<p>"comment" if member can comment on this photo</p>
+<p>"delete" if the member can delete the photo</p>
+<p>"edit" if the member can edit the photo details</p>
+<p>"upload_photo" if the member can upload new photos</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="short_link"><span class="">short_link</span></dt>
+    <dd class="rounded-all">
+    <p>Shortened link to photo on meetup.com. Returned when 'short_link'
+is present in the 'fields' request parameter</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="thumb_link"><span class="">thumb_link</span></dt>
+    <dd class="rounded-all">
+    <p>Link for thumbnail sized photo</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="type"><span class="">type</span></dt>
+    <dd class="rounded-all">
+    <p>Type of photo. One of "event" or "member"</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+    <dd class="rounded-all">
+    <p>Time photo was last updated, in milliseconds since the epoch</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="utc_offset"><span class="">utc_offset</span></dt>
+    <dd class="rounded-all">
+    <p>Numeric utc offset based on the timezone of the group
+hosting the event this photo was posted in</p>
+    
+    </dd>
+  
+  </dl>
+  
+  <h4 id="uploaderrors" class="rounded-all">Errors</h4>
+  <dl>
+  
+    <dt class="align-right bold"><span class="">caption_error</span></dt>
+    <dd><p>The provided caption was longer than 255 characters</p></dd>
+  
+    <dt class="align-right bold"><span class="">photo_error</span></dt>
+    <dd><p>Returned photo was either omitted from the request or was invalid</p></dd>
+  
+    <dt class="align-right bold"><span class="">upload_error</span></dt>
+    <dd><p>The process of uploading the photo failed</p></dd>
+  
+    <dt class="align-right bold"><span class="">upload_limit_error</span></dt>
+    <dd><p>A member uploaded more photos than allowed for this event</p></dd>
+  
+    <dt class="align-right bold"><span class="">upload_timeout_error</span></dt>
+    <dd><p>A awaited response timed out</p></dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

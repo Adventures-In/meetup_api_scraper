@@ -1,0 +1,80 @@
+
+        
+
+<div id="">
+  <h2>Report Abuse</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">POST</strong> /self/abuse_reports
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">reporting</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Submits a new abuse report for a target member. Abuse reports will be followed up on by our Community Support team.</p>
+  </div>
+  
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>This method requires the oauth <code>reporting</code> scope for oauth-authenticated requests</p></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="comments"><span class="">comments</span></dt>
+    <dd class="rounded-all"><p>An optional string of text that describes why you are submitting this report</p></dd>
+  
+    <dt class="align-right bold" title="content_tag"><span class="">content_tag</span></dt>
+    <dd class="rounded-all"><p>An optional identifier for flagged content that identifies both the type and id, where possible, of the content reported. The type and id should be separated by a ':' character, e.g <code>event_comment:{event_comment_id}</code>. Valid content_tag types include conversation, conversation_message, convo, custom_list, email, event_comment, event_photo, group, mailing_list, member_photo, member_profile, message_board, pro_megaphone, reply, service_group_communication, service_group_communication_message. If member_id is not provided, content_tag should be provided to imply member_id</p></dd>
+  
+    <dt class="align-right bold" title="member_id"><span class="">member_id</span></dt>
+    <dd class="rounded-all"><p>A numeric identifier for the member being reported. If not provided, this will be infered by the author of the content associated with the provided <code>content_tag</code></p></dd>
+  
+    <dt class="align-right bold" title="type"><span class="param_required">type</span></dt>
+    <dd class="rounded-all"><p>A required identifier for type of abuse you are reporting. Acceptable values include general:underage, general:misrepresentation, general:sexually_explicit, general:hateful, general:violent, general:spam, general:intellectual_property, general:other, message:sexually_explicit, message:hateful, message:violent, message:misinformation, message:spam, message:other, photo:sexually_explicit, photo:hateful, photo:violent, photo:misleading_title, photo:intellectual_property, irl:misrepresentation, irl:hateful, irl:violent, irl:other, abuse, cron, dangerous, dislike_photo, fake, graphic_content, graphic_photo, impersonation, inappropriate, inappropriate_photo, join, licensed_services, offsite, not_accurate, not_irl, other, photo, sex, spam, transactional, underage, pay_dispute, nudity, violence, harmful_activities, not_community, promotion_focus</p></dd>
+  
+    <dt class="align-right bold" title="url"><span class="">url</span></dt>
+    <dd class="rounded-all"><p>An optional URL for the location of the reported content if one exists</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>A successful abuse report request will result in a 202 Accepted response</p>
+  <dl>
+  
+  </dl>
+  
+  
+  <h3 id="examples" class="rounded-all">Examples</h3>
+  <p>Submit an abuse report for member {member_id} for posting inappropriate comments</p>
+<pre><code>curl -H "Authorization: Bearer {token}" \
+  "https://api.meetup.com/self/abuse_reports" \
+  -d "member_id={member_id}&amp;type=inappropriate&amp;comment=This member has been posting inappropriate comments on my Meetups"
+</code></pre>
+  
+</div>
+
+
+      

@@ -1,0 +1,73 @@
+
+        
+
+<div id="delete">
+  <h2>Member Photo Delete</h2>
+  <div id="deleteuri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">DELETE</strong> /members/:member_id/photos/:photo_id
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">profile_edit</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Deletes a member photo by id</p>
+  </div>
+  
+  <h3 id="deleteparams" class="rounded-all">Request Parameters</h3>
+  <div class="deleteparam-notes"><p>A valid path parameter value for <strong>:member_id</strong> and <strong>:photo_id</strong> is required. The value of <strong>:member_id</strong> must match the authenticated
+member's id or "self".</p>
+<p>Since this method can change properties of your member profile, OAuth authenticated applications must
+request the <a href="/meetup_api/auth/#profile_edit_scope">profile_edit</a>
+permission scope.</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h3 id="deleteresponse" class="rounded-all">Response</h3>
+  <p>A successful request will yield an HTTP 204 NoContent response</p>
+  <dl>
+  
+  </dl>
+  
+  <h4 id="deleteerrors" class="rounded-all">Errors</h4>
+  <dl>
+  
+    <dt class="align-right bold"><span class="">authorization_error</span></dt>
+    <dd><p>Returned if the authenticated member was not the owner of this photo</p></dd>
+  
+    <dt class="align-right bold"><span class="">photo_id_error</span></dt>
+    <dd><p>Returned if the photo could not be found or was previously deleted</p></dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      

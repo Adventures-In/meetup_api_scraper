@@ -1,0 +1,179 @@
+
+        
+
+<div id="">
+  <h2>Discussions</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /:urlname/boards/:bid/discussions
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Listings of group discussions</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/:urlname/boards/:bid/discussions">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"><p>The :urlname path element may be any valid group urlname or domain name. The :bid path element may be any valid board ID for this group.</p></div>
+  <dl class="rounded-all">
+  
+  </dl>
+  
+  <h4 id="ordering">Ordering</h4>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold"><span class="">last_post_date</span></dt>
+    <dd class="rounded-all"><p>(default) by post date</p></dd>
+  
+    <dt class="align-right bold"><span class="">member_name</span></dt>
+    <dd class="rounded-all"><p>by posting member's name</p></dd>
+  
+    <dt class="align-right bold"><span class="">thread_reply_count</span></dt>
+    <dd class="rounded-all"><p>by the threads reply count</p></dd>
+  
+    <dt class="align-right bold"><span class="">thread_view_count</span></dt>
+    <dd class="rounded-all"><p>by the number of views a thread has</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  
+  <dl>
+   
+    <dt class="align-right bold" title="board"><span class="">board</span></dt>
+    <dd class="rounded-all">
+    <p>The board this discussion belongs to</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="id"><span class="">id</span></dt>
+       <dd class="rounded-all">
+        <p>Numeric ID of this discussion's board</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="body"><span class="">body</span></dt>
+    <dd class="rounded-all">
+    <p>The contents of the first post in this discussion</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="created"><span class="">created</span></dt>
+    <dd class="rounded-all">
+    <p>Time board was created in milliseconds since the epoch</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="id"><span class="">id</span></dt>
+    <dd class="rounded-all">
+    <p>Numeric discussion ID</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="last_post"><span class="">last_post</span></dt>
+    <dd class="rounded-all">
+    <p>The last post made in this discussion</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="created"><span class="">created</span></dt>
+       <dd class="rounded-all">
+        <p>Time post was made in milliseconds since the epoch</p>
+        
+       </dd>
+      
+       <dt class="align-right bold" title="member"><span class="">member</span></dt>
+       <dd class="rounded-all">
+        <p>The posting member</p>
+        
+          <dl>
+            
+            <dt class="align-right bold" title="name"><span class="">name</span></dt>
+            <dd class="rounded-all"><p>Member name</p></dd>
+            
+          <dl>
+        
+       </dl></dl></dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="reply_count"><span class="">reply_count</span></dt>
+    <dd class="rounded-all">
+    <p>Number of replies this discussion has</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="started_by"><span class="">started_by</span></dt>
+    <dd class="rounded-all">
+    <p>The member that started this discussion</p>
+    
+      <dl>
+      
+       <dt class="align-right bold" title="name"><span class="">name</span></dt>
+       <dd class="rounded-all">
+        <p>Member name</p>
+        
+       </dd>
+      
+      </dl>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="subject"><span class="">subject</span></dt>
+    <dd class="rounded-all">
+    <p>The subject of the first post in this discussion</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="updated"><span class="">updated</span></dt>
+    <dd class="rounded-all">
+    <p>Time board was updated in milliseconds since the epoch</p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+  <h3 id="examples" class="rounded-all">Examples</h3>
+  <p>Get a list of the current discussions going on in
+The Dashing Whippet's <a href="http://www.meetup.com/dashing-whippets/messages/boards/forum/1061014">Whippet lounge</a></p>
+<pre><code>curl 'https://api.meetup.com/dashing-whippets/boards/1061014/discussions?key=API_KEY'
+</code></pre>
+<p><a href="/meetup_api/console/?path=/:urlname/boards/:bid/discussions&amp;:urlname=dashing-whippets&amp;:bid=1061014">Try it in the console</a></p>
+  
+</div>
+
+
+      

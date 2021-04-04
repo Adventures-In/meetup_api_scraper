@@ -1,0 +1,100 @@
+
+        
+
+<div id="">
+  <h2>Get Pro Network RSVPs</h2>
+  <div id="uri" class="uri rounded-all">
+    <div class="line">
+      <div class="unit" title="Request URI">
+        <strong class="muted caps">GET</strong> /pro/:urlname/rsvps
+      </div>
+      <div class="lastUnit">
+        <ul class="formats align-right inlineList" title="Serialization formats">
+        
+          <li class="rounded-all api-label">json</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="unit">
+        <strong class="muted">Host:</strong> api.meetup.com
+      </div>
+      <div class="lastUnit">
+        <ul class="scopes align-right inlineList" title="Authorization scopes">
+        
+          <li class="rounded-all api-label">basic</li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="line">
+      <div class="lastUnit align-right">
+        <span class="rounded-all api-label">api version 3</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="leading-top">
+  <p>Get the list of RSVP responses for the events across the entire Pro network</p>
+  </div>
+  <p><a href="/meetup_api/console/?path=/pro/:urlname/rsvps">Try it in the console</a></p>
+  <h3 id="params" class="rounded-all">Request Parameters</h3>
+  <div class="param-notes"></div>
+  <dl class="rounded-all">
+  
+    <dt class="align-right bold" title="offset"><span class="">offset</span></dt>
+    <dd class="rounded-all"><p>Integer: offset of page, starting from 0</p></dd>
+  
+    <dt class="align-right bold" title="page"><span class="">page</span></dt>
+    <dd class="rounded-all"><p>Integer: size of page. Minimum of 1 and maximum of 200</p></dd>
+  
+  </dl>
+  
+  <h3 id="response" class="rounded-all">Response</h3>
+  <p>if successful, 200 with the JSON array, ordered by mtime, recent first</p>
+  <dl>
+   
+    <dt class="align-right bold" title="event_id"><span class="">event_id</span></dt>
+    <dd class="rounded-all">
+    <p>Integer: Unique identifier for the event</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="group_id"><span class="">group_id</span></dt>
+    <dd class="rounded-all">
+    <p>Integer: Unique identifier for the group for the event</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="member_id"><span class="">member_id</span></dt>
+    <dd class="rounded-all">
+    <p>Integer: Unique identifier for the member who RSVPed</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="mtime"><span class="">mtime</span></dt>
+    <dd class="rounded-all">
+    <p>Long Integer: Unix timestamp of the last time RSVP response was modified</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="rsvp_id"><span class="">rsvp_id</span></dt>
+    <dd class="rounded-all">
+    <p>Integer: Unique identifier for the rsvp response</p>
+    
+    </dd>
+   
+    <dt class="align-right bold" title="status"><span class="">status</span></dt>
+    <dd class="rounded-all">
+    <p>String: Status of the RSVP response. One of <code>yes</code>, <code>no</code>, and <code>waitlisted</code></p>
+    
+    </dd>
+  
+  </dl>
+  
+  
+</div>
+
+
+      
