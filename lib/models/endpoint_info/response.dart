@@ -5,9 +5,17 @@ class Response {
   late final Map<String, Object> map;
 
   Response.fromElement(Element element) {
+    _description = element.text;
+
     final nodes = element.parentNode!.nodes;
-    final firstElement = nodes.first as Element;
-    if (firstElement.className == 'p') _description = firstElement.text;
+    for (var i = nodes.indexOf(element) + 1; i < nodes.length; i++) {
+      final node = nodes[i];
+      if (node is Element) {
+        print(node.text);
+      }
+    }
+
+    map = {};
   }
 
   String get description => _description;
