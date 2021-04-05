@@ -11,28 +11,19 @@ import 'package:meetup_api_scraper/models/endpoint_info/response.dart';
 // h4 - none
 class EndpointInfo {
   // Each endpoint has it's own page at meetup_api/docs/<endpoint>
-  EndpointInfo(String title, String idPrefix, Document document, int position)
+  EndpointInfo(
+      {required String path,
+      required OperationType operationType,
+      required String title,
+      required String summary,
+      required Element paramsElement,
+      required Element responseElement,
+      required Element? examplesElement})
       : _title = title,
-        _summary = document
-            .getElementsByClassName('leading-top')
-            .elementAt(position)
-            .text {
-    // elements that will be re-used
-    final requestUriInfos = document
-        .querySelectorAll(r'div[title="Request URI"]')
-        .elementAt(position)
-        .text
-        .trim()
-        .split(' ');
+        _summary = summary {
+    _path = path;
 
-    // Request URI info at the start
-    _path = requestUriInfos.last;
-    _operationType = OperationTypeEnum.from(requestUriInfos.first);
-
-    // The 3 major sections
-    final paramsElement = document.getElementById('${idPrefix}params')!;
-    final responseElement = document.getElementById('${idPrefix}response')!;
-    final examplesElement = document.getElementById('${idPrefix}examples');
+    _operationType = operationType;
     _requestParameters =
         RequestParameters.fromElement(paramsElement.nextElementSibling!);
     _response = Response.fromElement(responseElement.nextElementSibling!);

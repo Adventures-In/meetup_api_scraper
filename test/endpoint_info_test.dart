@@ -2,32 +2,27 @@ import 'dart:io';
 
 import 'package:html/parser.dart';
 import 'package:meetup_api_scraper/enums/operation_type.dart';
-import 'package:meetup_api_scraper/models/endpoint_info.dart';
+import 'package:meetup_api_scraper/utils/path_utils.dart';
+import 'package:meetup_api_scraper/extensions/document_extensions.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('EndpointInfo', () {
-    /// The file "report-group.html" is the result of calling
-    /// scraper.scrape(endpoint: ':urlname/abuse_reports')
-    ///
-    /// The call to the scraper retrieves the html from the documentation
-    /// page for the endpoint with path ':urlname/abuse_reports'
-    /// and extracting the element with id='method-info'
     test('correctly parses a page with one endpoint info item', () async {
-      final htmlString =
-          await File('test/data/report-group.html').readAsString();
+      final path = '/:urlname/abuse_reports';
+      final testDataPath = PathUtils.testDataPathFrom(path);
+      final htmlString = await File(testDataPath).readAsString();
       final document = parse(htmlString);
 
-      final h2s = document.getElementsByTagName('h2');
-      final title = h2s.first.text;
-      final idPrefix = h2s.first.parent!.id;
-
-      final endpointInfo = EndpointInfo(title, idPrefix, document, 0);
+      final endpointInfo = document.toEndpointInfo(0, path);
 
       expect(endpointInfo.title, 'Report Group');
-      expect(endpointInfo.summary,
-          'Submits a new abuse report for a target group. Abuse reports will be followed up on by our Community Support team.');
-      expect(endpointInfo.path, '/:urlname/abuse_reports');
+      expect(
+          endpointInfo.summary,
+          '\n'
+          '  Submits a new abuse report for a target group. Abuse reports will be followed up on by our Community Support team.\n'
+          '  ');
+      expect(endpointInfo.path, path);
       expect(endpointInfo.operationType, OperationType.post);
       expect(endpointInfo.requestParameters.notes,
           'This method requires the oauth reporting scope for oauth-authenticated requests');
@@ -54,15 +49,12 @@ void main() {
     });
 
     test('correctly parses a page with multiple endpoint info items', () async {
-      final htmlString =
-          await File('test/data/_members_:member_id.html').readAsString();
+      final path = '/members/:member_id';
+      final testDataPath = PathUtils.testDataPathFrom(path);
+      final htmlString = await File(testDataPath).readAsString();
       final document = parse(htmlString);
 
-      final h2s = document.getElementsByTagName('h2');
-      final title1 = h2s.first.text;
-      final idPrefix1 = h2s.first.parent!.id;
-
-      final endpointInfo1 = EndpointInfo(title1, idPrefix1, document, 0);
+      final endpointInfo1 = document.toEndpointInfo(0, path);
 
       expect(endpointInfo1.title, 'Get Member Profile');
       expect(
@@ -93,10 +85,7 @@ void main() {
           '    "https://api.meetup.com/members/self?fields=groups"\n'
           '');
 
-      final title2 = h2s.last.text;
-      final idPrefix2 = h2s.last.parent!.id;
-
-      final endpointInfo2 = EndpointInfo(title2, idPrefix2, document, 1);
+      final endpointInfo2 = document.toEndpointInfo(1, path);
 
       expect(endpointInfo2.title, 'Member Profile Edit');
       expect(
