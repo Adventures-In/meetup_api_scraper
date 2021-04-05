@@ -2,7 +2,7 @@ import 'package:html/dom.dart';
 import 'package:meetup_api_scraper/enums/operation_type.dart';
 import 'package:meetup_api_scraper/models/endpoint_info/examples.dart';
 import 'package:meetup_api_scraper/models/endpoint_info/request_parameters/request_parameters.dart';
-import 'package:meetup_api_scraper/models/endpoint_info/response.dart';
+import 'package:meetup_api_scraper/models/endpoint_info/response/response.dart';
 
 // h2 - single tag => title
 // final h2Tags = element.getElementsByTagName('h2');

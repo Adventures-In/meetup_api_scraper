@@ -9,4 +9,17 @@ extension ElementExtension on Element {
           .trim()
           .split(' ')
           .first);
+
+  Element? get nextDescriptionList {
+    final allNodes = parentNode!.nodes;
+    final remainingNodes = allNodes.sublist(allNodes.indexOf(this) + 1);
+
+    for (final node in remainingNodes) {
+      if (node is Element && node.localName == 'dl') {
+        return node;
+      }
+    }
+
+    return null;
+  }
 }
