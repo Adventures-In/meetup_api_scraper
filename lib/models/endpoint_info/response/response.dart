@@ -5,14 +5,11 @@ import 'package:meetup_api_scraper/models/endpoint_info/response/response_object
 class Response {
   late final String _description;
   late final Map<String, ResponseObject>? _map;
-  late final Element dlElement;
 
   Response.fromElement(Element element) {
     _description = element.text;
 
-    final dlElement = element.nextDescriptionList!;
-
-    final dlChildren = dlElement.children;
+    final dlChildren = element.nextDescriptionList!.children;
 
     final localMap = <String, ResponseObject>{};
     for (var i = 0; i < dlChildren.length; i += 2) {
@@ -28,5 +25,5 @@ class Response {
   Map<String, ResponseObject> get map => _map!;
 
   @override
-  String toString() => _description;
+  String toString() => '$_description\n\n$_map';
 }
